@@ -1,4 +1,13 @@
 body {
-    background-color: lightpink;
+    background-color: lightblue;
     color: black;
 }
+
+
+
+footer h2 {
+   text-align: center;
+   width: 100%;
+   
+}
+
