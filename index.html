@@ -13,43 +13,6 @@
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
     <title>COVID-19 Infections Near Me</title>
-
-    <script>
-        function getdata() {
-            var url = "https://covidtracking.com/api/v1/states/ca/screenshots.json";
-            //alert("fetchdata");
-
-            var xhr = new XMLHttpRequest();
-            xhr.open('GET', url, true);
-            xhr.responseType = 'json';
-
-            xhr.onload = function () {
-                //      alert(xhr.status);
-                var status = xhr.status;
-                var data = xhr.response;
-                //   alert(data.length);
-                for (var i = 0; i < data.length; i++) {
-                    console.log(data[i].state);
-                    console.log(data[i].size);
-                    console.log(data[i].url);
-                    console.log(data[i].date);
-                    console.log(data[i].dateChecked);
-                    console.log(data[i].secondary);
-                }
-                //alert(xhr.response);
-                if (status == 200) {
-
-                    // callback(null, xhr.response);
-                } else {
-                    //  callback(status);
-                }
-            };
-
-            xhr.send();
-        }
-
-
-    </script>
 </head>
 
 <body>
@@ -126,7 +89,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <!--Monents-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-        <!-- <script src="assets/js/script.js"></script>-->
+        <script src="assets/js/script.js">
 
 
 </body>
