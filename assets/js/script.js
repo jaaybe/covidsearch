@@ -29,6 +29,7 @@ var getCovidData = () => {
 
 // prepare drop-down list for states
 var makeStatesDropDownList = (data) => {
+    statesEl.innerHTML = '<option selected="selected" value="all">All states</option>';
     // append each state into the drop-down selection list
     data.forEach(item => {
         getCities(item.region.province, item.region.cities);
@@ -47,13 +48,15 @@ var makeCitiesDropDownList = (state) => {
         Object.values(statesDict).forEach(citiesArray => {
             citiesArray.forEach(city => citiesToDisplay.push(city));
         });
+        citiesToDisplay = citiesToDisplay.filter(uniqueValues).sort();
+    } else {
+        citiesEl.innerHTML = '';
+        citiesToDisplay = statesDict[state];
     }
-    console.log(citiesToDisplay);
-    var uniqueCities = citiesToDisplay.filter(uniqueValues);
-    console.log(uniqueCities);
+
     // append each city into the drop-down selection list
-    uniqueCities.sort();
-    uniqueCities.forEach(city => {
+    citiesEl.innerHTML = '<option selected="selected" value="all">All cities</option>';
+    citiesToDisplay.forEach(city => {
         var optionEl = document.createElement('option');
         optionEl.value = city;
         optionEl.textContent = city;
@@ -71,9 +74,9 @@ var getCities = (state, cities) => {
 // function to narrow drop down list of cities upon selection of a state
 var stateSelectionHandler = (event) => {
     event.preventDefault();
-    // get value from select element
+    // get value from selected element
     var selectedState = statesEl.options[statesEl.selectedIndex].value;
-    console.log(selectedState);
+    makeCitiesDropDownList(selectedState);
 };
 
 getCovidData();
