@@ -5,8 +5,8 @@ var statesDict = {};
 var statesEl = document.querySelector('#states');
 var citiesEl = document.querySelector('#cities');
 var tbodyEl = document.querySelector('tbody');
-var filterButton = document.querySelector('#filter-btn');
-var clearButton = document.querySelector('#clear-btn');
+var filterButton = document.querySelector('#subBtn');
+var clearButton = document.querySelector('#clearBtn');
 
 // utility function to display list of unique values
 var uniqueValues = ((value, index, self) => self.indexOf(value) === index);
@@ -71,6 +71,19 @@ var getCities = (state, cities) => {
     statesDict[state] = citiesList.sort();
 };
 
+// find state(s) for a selected city
+var identifyState = (citySelected) => {
+    var statesList = [];
+    Object.entries(statesDict).forEach(entry => {
+        entry[1].forEach(city => {
+            if (city === citySelected) {
+                statesList.push(entry[0]);
+            }
+        });
+    });
+    return statesList;
+}
+
 // function to narrow drop down list of cities upon selection of a state
 var stateSelectionHandler = (event) => {
     event.preventDefault();
@@ -79,5 +92,21 @@ var stateSelectionHandler = (event) => {
     makeCitiesDropDownList(selectedState);
 };
 
+// function to narrow drop down list of cities upon selection of a state
+var citySelectionHandler = (event) => {
+    event.preventDefault();
+    // get value from selected element
+    var selectedCity = citiesEl.options[citiesEl.selectedIndex].value;
+    var correspondingStatesArr = identifyState(selectedCity);
+    statesEl.innerHTML = '';
+    correspondingStatesArr.forEach(state => {
+        var optionEl = document.createElement('option');
+        optionEl.value = state;
+        optionEl.textContent = state;
+        statesEl.appendChild(optionEl);
+    });
+}
+
 getCovidData();
 statesEl.addEventListener('change', stateSelectionHandler);
+citiesEl.addEventListener('change', citySelectionHandler);
