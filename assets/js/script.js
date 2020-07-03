@@ -84,7 +84,7 @@ var identifyState = (citySelected) => {
         });
     });
     return statesList;
-}
+};
 
 // function to narrow drop down list of cities upon selection of a state
 var stateSelectionHandler = (event) => {
@@ -115,7 +115,7 @@ var citySelectionHandler = (event) => {
             statesEl.appendChild(optionEl);
         });
     }
-}
+};
 
 // function to fetch covid data based on user selections (assuming we have only one city/state pair selected)
 var searchClickHandler = (event) => {
@@ -140,6 +140,8 @@ var searchClickHandler = (event) => {
 
 // function to display covid stats fectched from covid api (only one city/state pair mvp)
 var displayCovidStats = (dataObj) => {
+    // clear old content
+    covidStatsEl.innerHTML = '';
     // display date
     var dateEl = document.createElement('li');
     dateEl.textContent = `As of: ${dataObj.region.cities[0].date}`;
@@ -149,7 +151,7 @@ var displayCovidStats = (dataObj) => {
     if (parseInt(dataObj.region.cities[0].confirmed_diff) > 0) {
         confirmedCasesEl.textContent = `Confirmed cases: ${dataObj.region.cities[0].confirmed} (+${dataObj.region.cities[0].confirmed_diff} cases compared to the previous day)`;
     }
-    else if (parseInt(dataObj["confirmed_diff"]) === 0) {
+    else if (parseInt(dataObj.region.cities[0].confirmed_diff) === 0) {
         confirmedCasesEl.textContent = `Confirmed cases: ${dataObj.region.cities[0].confirmed} (no new cases compared to the previous day)`;
     }
     else {
@@ -161,7 +163,7 @@ var displayCovidStats = (dataObj) => {
     if (parseInt(dataObj.region.cities[0].deaths_diff) > 0) {
         deathsEl.textContent = `Deaths: ${dataObj.region.cities[0].deaths} (+${dataObj.region.cities[0].deaths_diff} deaths compared to the previous day)`;
     }
-    else if (parseInt(dataObj["deaths_diff"]) === 0) {
+    else if (parseInt(dataObj.region.cities[0].deaths_diff) === 0) {
         deathsEl.textContent = `Deaths: ${dataObj.region.cities[0].deaths} (no new deaths compared to the previous day)`;
     }
     else {
@@ -172,9 +174,19 @@ var displayCovidStats = (dataObj) => {
     var fatalityRateEl = document.createElement('li');
     fatalityRateEl.textContent = `Fatality rate in ${dataObj.region.province}: ${dataObj.fatality_rate}`;
     covidStatsEl.appendChild(fatalityRateEl);
-}
+};
+
+//function to reset drop down lists
+var clearFilters = (event) => {
+    pickedState = false;
+    pickedCity = false;
+    statesEl.innerHTML = '';
+    citiesEl.innerHTML = '';
+    makeDropDownLists();
+};
 
 makeDropDownLists();
 statesEl.addEventListener('change', stateSelectionHandler);
 citiesEl.addEventListener('change', citySelectionHandler);
 filterButton.addEventListener('click', searchClickHandler);
+clearButton.addEventListener('click', clearFilters);
