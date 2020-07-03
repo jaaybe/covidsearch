@@ -77,6 +77,56 @@
             </div>
         </div>
     </div>
+    <div class="container">
+        <div class="row margin-top-50">
+          <div class="col-md-2">
+            <aside class="filters">
+              <div class="panel panel-default">
+                <div class="panel-heading">Filter Search</div>
+                <div class="panel-body">
+                  <form>
+                    <div class="form-group">
+                      <ul class="list-group" id="filters">
+                        <li class="filter list-group-item">
+                          <select name="state" id="states">
+                            <option selected="selected" value="all">Select a state</option>
+                          </select>
+                        </li>
+                        <li class="filter list-group-item">
+                          <select name="city" id="cities">
+                            <option selected="selected" value="all">Select a city</option>
+                          </select>
+                        </li>
+                      </ul>
+                    </div>
+                    <button id="filter-btn" type="submit" class="btn btn-default">Filter Table</button>
+                    <button id="clear-btn" type="submit" class="btn btn-default">Clear Filters</button>
+                  </form>
+                </div>
+              </div>
+            </aside>
+          </div>
+          <div class="col-md-10">
+            <div id="table-area" class="">
+              <table id="covid-table" class="table table-striped">
+                <thead>
+                  <tr>
+                    <th class="table-head">Last Update</th>
+                    <th class="table-head">State</th>
+                    <th class="table-head">City</th>
+                    <th class="table-head">Cases</th>
+                    <th class="table-head">Cases-Diff</th>
+                    <th class="table-head">Deaths</th>
+                    <th class="table-head">Deaths-Diff</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
 
     <!--Footer-->
