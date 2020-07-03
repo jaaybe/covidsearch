@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!--Free Icons-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+    <title>COVID-19 Infections Near Me</title>
+
+
+</head>
+
+<body>
+
+    <header>
+        <nav class="container-fluid text-center border-bottom">
+            <h1>Covid-19 Stats and Hospital location</h1>
+    </header>
+    <!--site information and use-->
+    <div>
+        <p class="info text-center">how to use site, what info will be provided</p>
+    </div>
+    <div class="container-fluid">
+
+        <!-- SEARCH INPUT -->
+        <div class="row">
+            <div class="col-2">
+                <h4 class="font-weight-bold">Search by Zip Code:</h4>
+                <input type="text" placeholder="Search by zip code ..." name="search" id="search">
+                </input>
+                <!--search button-->
+                <button type="submit" id="subBtn" onclick="getdata()"><i class="fa fa-search"></i></button>
+                <br />
+                <br />
+                <!-- CLEAR HISTORY BUTTON not sure if we want to store search history -->
+                <button class="btn btn-lg  btn-danger my-3 my-sm-0" id="clearHistoryBtn" type="submit">Clear</button>
+            </div>
+            <!--virus image-->
+            <div class="col-10"><img src="covidimg.png" style="width:11em; height:11em; float:right;">
+            </div>
+        </div>
+
+    </div>
+    <div class="col-4 mt-2">
+    </div>
+    <!--covid Data Made invisible -->
+    <div class="row" style="display: none;">
+        <div id="currentData">
+            <div class="col-md-12">
+                <ul style="list-style-type:none;">
+                    <h3 class="card-title"></h3>
+                    <li id="city">City:</li>
+                    <li id="date">Date:</li>
+                    <li id="confirmed">Confirmed:</li>
+                    <li id="deaths">Deaths:</li>
+                    <li id="recovered">Recovered:</li>
+                    <li id="active">Active:</li>
+                    <li id="fatality_rate">Fatality Rate:</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--sample map-->
+    <div class="row">
+        <div class="col-2"> &nbsp;</div>
+        <div class="col-10">
+            <div id="map">
+                <iframe width="50%" height="300px"
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d12182.30520634488!2d-74.0652613!3d40.2407219!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1561060983193!5m2!1sen!2sus"
+                    frameborder="1" style="border:0; float:right;" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+
+    <!--Footer-->
+    <footer>
+        <h2> &copy; 2020 Hot Stuff</h2>
+    </footer>
+
+
+
+    <!--Jquery-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!--Monents-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="assets/js/script.js"></script>
+
+
+</body>
+
+
+</html>
