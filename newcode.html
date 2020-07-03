@@ -1,0 +1,75 @@
+<div class="container-fluid">
+    <div class="row">
+        <!-- SEARCH INPUT -->
+        <div class="col-4">
+            <form>
+                <div class="form-group">
+                    <ul class="list-group" id="filters">
+                        <li class="filter list-group-item"  style="display: none;">
+                            <h4 class="font-weight-bold">Search by Zip Code:</h4>
+                            <input type="text" placeholder="Search by zip code ..." name="search" id="search">
+                            </input>
+                        </li>
+                        <li class="filter list-group-item">
+                            <select name="state" id="states">
+                            </select>
+                        </li>
+                        <li class="filter list-group-item">
+                            <select name="city" id="cities">
+                            </select>
+                        </li>
+                    </ul>
+                </div>
+                <!--search button-->
+                <button type="submit" id="subBtn"><i class="fa fa-search"></i></button>
+                <button id="clearBtn" type="submit" class="btn btn-default">Clear Filters</button>
+            </form>
+            <br />
+            <br />
+            <!-- CLEAR HISTORY BUTTON not sure if we want to store search history -->
+            <button class="btn btn-lg  btn-danger my-3 my-sm-0" id="clearHistoryBtn" type="submit">Clear</button>
+        </div>
+        <!-- SEARCH RESULTS -->
+        <div class="col-8">
+            <!-- stats from covid api -->
+            <div class="row">
+                <!--covid data -->
+                <div class="col-8" id="currentData">
+                    <ul id="covid-stats" style="list-style-type:none;">
+                    </ul>
+                </div>
+                </div>
+                </div>
+                <div class="col-md-10">
+                    <div id="table-area" class="">
+                      <table id="covid-table" class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th class="table-head">Last Update</th>
+                            <th class="table-head">State</th>
+                            <th class="table-head">City</th>
+                            <th class="table-head">Cases</th>
+                            <th class="table-head">Cases-Diff</th>
+                            <th class="table-head">Deaths</th>
+                            <th class="table-head">Deaths-Diff</th>
+                          </tr>
+                        </thead>
+                        <tbody></tbody>
+                      </table>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
