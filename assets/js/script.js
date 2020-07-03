@@ -6,7 +6,7 @@ var pickedCity = false;
 // get reference to the table body and the buttons
 var statesEl = document.querySelector('#states');
 var citiesEl = document.querySelector('#cities');
-var tbodyEl = document.querySelector('tbody');
+var covidStatsEl = document.querySelector('#covid-stats');
 var filterButton = document.querySelector('#subBtn');
 var clearButton = document.querySelector('#clearBtn');
 
@@ -14,7 +14,7 @@ var clearButton = document.querySelector('#clearBtn');
 var uniqueValues = ((value, index, self) => self.indexOf(value) === index);
 
 // get data from COVID api
-var getCovidData = () => {
+var makeDropDownLists = () => {
     fetch("https://covid-19-statistics.p.rapidapi.com/reports?iso=USA", {
 	    "method": "GET",
 	    "headers": {
@@ -117,16 +117,64 @@ var citySelectionHandler = (event) => {
     }
 }
 
-// function to filter covid data based on user selections
+// function to fetch covid data based on user selections (assuming we have only one city/state pair selected)
 var searchClickHandler = (event) => {
     event.preventDefault();
     // grab the user's filters
     var inputState = statesEl.options[statesEl.selectedIndex].value;
     var inputCity = citiesEl.options[citiesEl.selectedIndex].value;
-    console.log(inputCity, inputState);
+    // fetch covid data
+    fetch(`https://covid-19-statistics.p.rapidapi.com/reports?iso=USA&region_province=${inputState}&city_name=${inputCity}`, {
+	    "method": "GET",
+	    "headers": {
+		    "x-rapidapi-host": "covid-19-statistics.p.rapidapi.com",
+		    "x-rapidapi-key": "0963280af0msh0e5fedbfcf26176p193969jsndbe28f1cd420"
+	    }
+    })
+    .then(response => response.json())
+    .then(res => displayCovidStats(res.data[0]))
+    .catch(err => {
+	    console.log(err);
+    }); 
 };
 
-getCovidData();
+// function to display covid stats fectched from covid api (only one city/state pair mvp)
+var displayCovidStats = (dataObj) => {
+    // display date
+    var dateEl = document.createElement('li');
+    dateEl.textContent = `As of: ${dataObj.region.cities[0].date}`;
+    covidStatsEl.appendChild(dateEl);
+    // display confirmed cases and diff cases
+    var confirmedCasesEl = document.createElement('li');
+    if (parseInt(dataObj.region.cities[0].confirmed_diff) > 0) {
+        confirmedCasesEl.textContent = `Confirmed cases: ${dataObj.region.cities[0].confirmed} (+${dataObj.region.cities[0].confirmed_diff} cases compared to the previous day)`;
+    }
+    else if (parseInt(dataObj["confirmed_diff"]) === 0) {
+        confirmedCasesEl.textContent = `Confirmed cases: ${dataObj.region.cities[0].confirmed} (no new cases compared to the previous day)`;
+    }
+    else {
+        confirmedCasesEl.textContent = `Confirmed cases: ${dataObj.region.cities[0].confirmed} (${dataObj.region.cities[0].confirmed_diff} cases compared to the previous day)`;
+    }
+    covidStatsEl.appendChild(confirmedCasesEl);
+    // display deaths and diff deaths
+    var deathsEl = document.createElement('li');
+    if (parseInt(dataObj.region.cities[0].deaths_diff) > 0) {
+        deathsEl.textContent = `Deaths: ${dataObj.region.cities[0].deaths} (+${dataObj.region.cities[0].deaths_diff} deaths compared to the previous day)`;
+    }
+    else if (parseInt(dataObj["deaths_diff"]) === 0) {
+        deathsEl.textContent = `Deaths: ${dataObj.region.cities[0].deaths} (no new deaths compared to the previous day)`;
+    }
+    else {
+        deathsEl.textContent = `Deaths: ${dataObj.region.cities[0].deaths} (${dataObj.region.cities[0].deaths_diff} deaths compared to the previous day)`;
+    }
+    covidStatsEl.appendChild(deathsEl);
+    // display date
+    var fatalityRateEl = document.createElement('li');
+    fatalityRateEl.textContent = `Fatality rate in ${dataObj.region.province}: ${dataObj.fatality_rate}`;
+    covidStatsEl.appendChild(fatalityRateEl);
+}
+
+makeDropDownLists();
 statesEl.addEventListener('change', stateSelectionHandler);
 citiesEl.addEventListener('change', citySelectionHandler);
 filterButton.addEventListener('click', searchClickHandler);
