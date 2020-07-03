@@ -1,5 +1,7 @@
 // global variables needed
 var statesDict = {};
+var pickedState = false;
+var pickedCity = false;
 
 // get reference to the table body and the buttons
 var statesEl = document.querySelector('#states');
@@ -87,26 +89,44 @@ var identifyState = (citySelected) => {
 // function to narrow drop down list of cities upon selection of a state
 var stateSelectionHandler = (event) => {
     event.preventDefault();
+    pickedState = true;
     // get value from selected element
     var selectedState = statesEl.options[statesEl.selectedIndex].value;
-    makeCitiesDropDownList(selectedState);
+    // adjust drop down for cities only if user had not already selected a city
+    if (!pickedCity) {
+        makeCitiesDropDownList(selectedState);
+    }
 };
 
 // function to narrow drop down list of cities upon selection of a state
 var citySelectionHandler = (event) => {
     event.preventDefault();
+    pickedCity = true;
     // get value from selected element
     var selectedCity = citiesEl.options[citiesEl.selectedIndex].value;
-    var correspondingStatesArr = identifyState(selectedCity);
-    statesEl.innerHTML = '';
-    correspondingStatesArr.forEach(state => {
-        var optionEl = document.createElement('option');
-        optionEl.value = state;
-        optionEl.textContent = state;
-        statesEl.appendChild(optionEl);
-    });
+    // adjust drop down for states only if user had not already selected a state
+    if (!pickedState) {
+        var correspondingStatesArr = identifyState(selectedCity);
+        statesEl.innerHTML = '';
+        correspondingStatesArr.forEach(state => {
+            var optionEl = document.createElement('option');
+            optionEl.value = state;
+            optionEl.textContent = state;
+            statesEl.appendChild(optionEl);
+        });
+    }
 }
+
+// function to filter covid data based on user selections
+var searchClickHandler = (event) => {
+    event.preventDefault();
+    // grab the user's filters
+    var inputState = statesEl.options[statesEl.selectedIndex].value;
+    var inputCity = citiesEl.options[citiesEl.selectedIndex].value;
+    console.log(inputCity, inputState);
+};
 
 getCovidData();
 statesEl.addEventListener('change', stateSelectionHandler);
 citiesEl.addEventListener('change', citySelectionHandler);
+filterButton.addEventListener('click', searchClickHandler);
