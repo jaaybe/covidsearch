@@ -1,5 +1,5 @@
 // global variables needed
-var citiesList = [];
+var statesDict = {};
 
 // get reference to the table body and the buttons
 var statesEl = document.querySelector('#states');
@@ -7,6 +7,9 @@ var citiesEl = document.querySelector('#cities');
 var tbodyEl = document.querySelector('tbody');
 var filterButton = document.querySelector('#filter-btn');
 var clearButton = document.querySelector('#clear-btn');
+
+// utility function to display list of unique values
+var uniqueValues = ((value, index, self) => self.indexOf(value) === index);
 
 // get data from COVID api
 var getCovidData = () => {
@@ -18,25 +21,39 @@ var getCovidData = () => {
 	    }
     })
     .then(response => response.json())
-    .then(res => makeDropDownLists(res.data))
+    .then(res => makeStatesDropDownList(res.data))
     .catch(err => {
 	    console.log(err);
     });
 };
 
-// prepare drop-down lists for states and cities
-var makeDropDownLists = (data) => {
+// prepare drop-down list for states
+var makeStatesDropDownList = (data) => {
     // append each state into the drop-down selection list
     data.forEach(item => {
-        getCities(item.region.cities);
+        getCities(item.region.province, item.region.cities);
         var optionEl = document.createElement('option');
         optionEl.value = item.region.province;
         optionEl.textContent = item.region.province;
         statesEl.appendChild(optionEl);
     });
+    makeCitiesDropDownList('all');
+};
+
+// prepare drop-down list for cities
+var makeCitiesDropDownList = (state) => {
+    var citiesToDisplay = [];
+    if (state === 'all') {
+        Object.values(statesDict).forEach(citiesArray => {
+            citiesArray.forEach(city => citiesToDisplay.push(city));
+        });
+    }
+    console.log(citiesToDisplay);
+    var uniqueCities = citiesToDisplay.filter(uniqueValues);
+    console.log(uniqueCities);
     // append each city into the drop-down selection list
-    console.log(citiesList);
-    citiesList.forEach(city => {
+    uniqueCities.sort();
+    uniqueCities.forEach(city => {
         var optionEl = document.createElement('option');
         optionEl.value = city;
         optionEl.textContent = city;
@@ -45,12 +62,19 @@ var makeDropDownLists = (data) => {
 };
 
 // extract cities from a particular state and store in citiesList
-var getCities = (cities) => {
-    cities.forEach(city => {
-        if (!(city.name in citiesList)) {
-            citiesList.push(city.name);
-        }
-    })
+var getCities = (state, cities) => {
+    var citiesList = [];
+    cities.forEach(city => citiesList.push(city.name));
+    statesDict[state] = citiesList.sort();
+};
+
+// function to narrow drop down list of cities upon selection of a state
+var stateSelectionHandler = (event) => {
+    event.preventDefault();
+    // get value from select element
+    var selectedState = statesEl.options[statesEl.selectedIndex].value;
+    console.log(selectedState);
 };
 
 getCovidData();
+statesEl.addEventListener('change', stateSelectionHandler);
