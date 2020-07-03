@@ -2,6 +2,8 @@
 var statesDict = {};
 var pickedState = false;
 var pickedCity = false;
+var inputLat = '';
+var inputLon = '';
 
 // get reference to the table body and the buttons
 var statesEl = document.querySelector('#states');
@@ -24,9 +26,7 @@ var makeDropDownLists = () => {
     })
     .then(response => response.json())
     .then(res => makeStatesDropDownList(res.data))
-    .catch(err => {
-	    console.log(err);
-    });
+    .catch(err => console.log(err));
 };
 
 // prepare drop-down list for states
@@ -133,15 +133,16 @@ var searchClickHandler = (event) => {
     })
     .then(response => response.json())
     .then(res => displayCovidStats(res.data[0]))
-    .catch(err => {
-	    console.log(err);
-    }); 
+    .catch(err => console.log(err));
 };
 
 // function to display covid stats fectched from covid api (only one city/state pair mvp)
 var displayCovidStats = (dataObj) => {
     // clear old content
     covidStatsEl.innerHTML = '';
+    // extract lat and lon for maps purposes
+    inputLat = dataObj.region.cities[0].lat;
+    inputLon = dataObj.region.cities[0].long;
     // display date
     var dateEl = document.createElement('li');
     dateEl.textContent = `As of: ${dataObj.region.cities[0].date}`;
