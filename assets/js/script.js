@@ -2,6 +2,9 @@
 var statesDict = {};
 var pickedState = false;
 var pickedCity = false;
+var inputState = '';
+var inputCity = '';
+var plotData = [];
 
 // get reference to the table body and the buttons
 var statesEl = document.querySelector('#states');
@@ -9,6 +12,7 @@ var citiesEl = document.querySelector('#cities');
 var covidStatsEl = document.querySelector('#covid-stats');
 var filterButton = document.querySelector('#subBtn');
 var clearButton = document.querySelector('#clearBtn');
+var plotEl = document.querySelector('#plot');
 
 // utility function to display list of unique values
 var uniqueValues = ((value, index, self) => self.indexOf(value) === index);
@@ -121,8 +125,9 @@ var citySelectionHandler = (event) => {
 var searchClickHandler = (event) => {
     event.preventDefault();
     // grab the user's filters
-    var inputState = statesEl.options[statesEl.selectedIndex].value;
-    var inputCity = citiesEl.options[citiesEl.selectedIndex].value;
+    inputState = statesEl.options[statesEl.selectedIndex].value;
+    inputCity = citiesEl.options[citiesEl.selectedIndex].value;
+    fetchPlotData(inputState, inputCity);
     // fetch covid data
     fetch(`https://covid-19-statistics.p.rapidapi.com/reports?iso=USA&region_province=${inputState}&city_name=${inputCity}`, {
 	    "method": "GET",
@@ -176,7 +181,7 @@ var displayCovidStats = (dataObj) => {
     covidStatsEl.appendChild(fatalityRateEl);
 };
 
-//function to reset drop down lists
+// function to reset drop down lists
 var clearFilters = (event) => {
     pickedState = false;
     pickedCity = false;
@@ -184,6 +189,41 @@ var clearFilters = (event) => {
     citiesEl.innerHTML = '';
     makeDropDownLists();
 };
+
+// function to fetch data for the plot
+var fetchPlotData = (inputState, inputCity) => {
+    var date = '';
+    for (var i=1; i<31; i++) {
+        // adjust date for next fetch
+        date = moment().subtract(i, 'd').format('YYYY-MM-DD');
+        // fetch covid data for that date, inputCity and inputState
+        fetch(`https://covid-19-statistics.p.rapidapi.com/reports?iso=USA&region_province=${inputState}&city_name=${inputCity}&date=${date}`, {
+	        "method": "GET",
+	        "headers": {
+		        "x-rapidapi-host": "covid-19-statistics.p.rapidapi.com",
+		        "x-rapidapi-key": "0963280af0msh0e5fedbfcf26176p193969jsndbe28f1cd420"
+	        }
+        })
+        .then(response => response.json())
+        .then(res => savePlotData(res.data[0]))
+        .catch(err => console.log(err));
+    }
+    displayPlot();
+};
+
+// function to collect relevant plot data
+var savePlotData = (dataObj) => {
+    var dataPointObj = {};
+    dataPointObj['date'] = dataObj.region.cities[0].date;
+    dataPointObj['confirmed'] = dataObj.region.cities[0].confirmed;
+    dataPointObj['deaths'] = dataObj.region.cities[0].deaths;
+    plotData.push(dataPointObj);
+};
+
+// function to display the Plotly plot
+var displayPlot = () => {
+    console.log(plotData);
+}
 
 makeDropDownLists();
 statesEl.addEventListener('change', stateSelectionHandler);
