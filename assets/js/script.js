@@ -127,7 +127,27 @@ var searchClickHandler = (event) => {
     // grab the user's filters
     var inputState = statesEl.options[statesEl.selectedIndex].value;
     var inputCity = citiesEl.options[citiesEl.selectedIndex].value;
-    // fetch covid data
+    fetchCovidData(inputCity, inputState);
+    // display city and state in search history if not already there
+    var inSearchHistory = false;
+    searchHistoryArr.forEach(obj => {
+        if (obj.city === inputCity && obj.state === inputState) {
+            return inThere = true;
+        }
+    });
+    if (!inSearchHistory) {
+        var newObj = {              // create new city/state pair
+            city: inputCity,
+            state: inputState
+        }
+        searchHistoryArr.push(newObj); // add new city/state pair
+        localStorage.setItem('searchHistoryArr', JSON.stringify(searchHistoryArr)); // save updated array
+        searchHistory();   // display updated search history
+    }
+};
+
+// function to fetch covid data for selected city/state pair
+var fetchCovidData = (inputCity, inputState) => {
     fetch(`https://covid-19-statistics.p.rapidapi.com/reports?iso=USA&region_province=${inputState}&city_name=${inputCity}`, {
 	    "method": "GET",
 	    "headers": {
@@ -138,22 +158,6 @@ var searchClickHandler = (event) => {
     .then(response => response.json())
     .then(res => displayCovidStats(res.data[0]))
     .catch(err => console.log(err));
-    // display city and state in search history if not already there
-    var inThere = false;
-    searchHistoryArr.forEach(obj => {
-        if (obj.city === inputCity && obj.state === inputState) {
-            return inThere = true;
-        }
-    });
-    if (!inThere) {
-        var newObj = {              // create new city/state pair
-            city: inputCity,
-            state: inputState
-        }
-        searchHistoryArr.push(newObj); // add new city/state pair
-        localStorage.setItem('searchHistoryArr', JSON.stringify(searchHistoryArr)); // save updated array
-        searchHistory();   // display updated search history
-    }
 };
 
 // function to display covid stats fectched from covid api (only one city/state pair mvp)
@@ -210,13 +214,6 @@ var searchHistory = () => {
     });
 };
 
-// function to clear the search history
-var clearSearchHistory = () => {
-    searchHistoryArr = [];
-    localStorage.setItem('searchHistoryArr', JSON.stringify(searchHistoryArr));
-    searchHistory();
-}
-
 // function to reset drop down lists
 var clearFilters = (event) => {
     pickedState = false;
@@ -226,9 +223,29 @@ var clearFilters = (event) => {
     makeDropDownLists();
 };
 
-makeDropDownLists();
-searchHistory();
+// function to handle click on a city/state pair displayed in the search history
+var searchHistoryClickHandler = event => {
+    var cityState = event.target.textContent;
+    var inputCity = cityState.split(', ')[0];
+    var inputState = cityState.split(', ')[1];
+    fetchCovidData(inputCity, inputState);
+}
+
+// function to clear the search history
+var clearSearchHistory = () => {
+    searchHistoryArr = [];
+    localStorage.setItem('searchHistoryArr', JSON.stringify(searchHistoryArr));
+    searchHistory();
+};
+
+// event listeners
 statesEl.addEventListener('change', stateSelectionHandler);
 citiesEl.addEventListener('change', citySelectionHandler);
 filterButton.addEventListener('click', searchClickHandler);
 clearButton.addEventListener('click', clearFilters);
+searchHistoryEl.addEventListener('click', searchHistoryClickHandler);
+delHistory.addEventListener('click', clearSearchHistory);
+
+// prepare drop down lists and display search history stored in local storage upon opening the app
+makeDropDownLists();
+searchHistory();
