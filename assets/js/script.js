@@ -5,14 +5,10 @@ var pickedCity = false;
 var inputLat = '';
 var inputLon = '';
 
-// retrieve search history
-var searchHistoryArr = JSON.parse(localStorage.getItem('searchHistoryArr')) || [];
-
 // get reference to the table body and the buttons
 var statesEl = document.querySelector('#states');
 var citiesEl = document.querySelector('#cities');
-var covidStatsEl = document.querySelector('#covid-stats');
-var searchHistoryEl = document.querySelector('#searchHistory');
+// var covidStatsEl = document.querySelector('#covid-stats');
 var filterButton = document.querySelector('#subBtn');
 var clearButton = document.querySelector('#clearBtn');
 
@@ -127,27 +123,7 @@ var searchClickHandler = (event) => {
     // grab the user's filters
     var inputState = statesEl.options[statesEl.selectedIndex].value;
     var inputCity = citiesEl.options[citiesEl.selectedIndex].value;
-    fetchCovidData(inputCity, inputState);
-    // display city and state in search history if not already there
-    var inSearchHistory = false;
-    searchHistoryArr.forEach(obj => {
-        if (obj.city === inputCity && obj.state === inputState) {
-            return inThere = true;
-        }
-    });
-    if (!inSearchHistory) {
-        var newObj = {              // create new city/state pair
-            city: inputCity,
-            state: inputState
-        }
-        searchHistoryArr.push(newObj); // add new city/state pair
-        localStorage.setItem('searchHistoryArr', JSON.stringify(searchHistoryArr)); // save updated array
-        searchHistory();   // display updated search history
-    }
-};
-
-// function to fetch covid data for selected city/state pair
-var fetchCovidData = (inputCity, inputState) => {
+    // fetch covid data
     fetch(`https://covid-19-statistics.p.rapidapi.com/reports?iso=USA&region_province=${inputState}&city_name=${inputCity}`, {
 	    "method": "GET",
 	    "headers": {
@@ -163,58 +139,61 @@ var fetchCovidData = (inputCity, inputState) => {
 // function to display covid stats fectched from covid api (only one city/state pair mvp)
 var displayCovidStats = (dataObj) => {
     // clear old content
-    covidStatsEl.innerHTML = '';
+   // covidStatsEl.innerHTML = '';
     // extract lat and lon for maps purposes
     inputLat = dataObj.region.cities[0].lat;
     inputLon = dataObj.region.cities[0].long;
     // display date
     var dateEl = document.createElement('li');
-    dateEl.textContent = `As of: ${dataObj.region.cities[0].date}`;
-    covidStatsEl.appendChild(dateEl);
+    dateEl.id="lastUpdate";
+    document.getElementById("lastUpdate").innerHTML= `Date Update: ${dataObj.region.cities[0].date}`;
+   // dateEl.textContent = `Date Update: ${dataObj.region.cities[0].date}`;
+   // covidStatsEl.appendChild(dateEl);
     // display confirmed cases and diff cases
-    var confirmedCasesEl = document.createElement('li');
+   // var confirmedCasesEl = document.createElement('li');
+    dateEl.id="confirmedCases";
+    document.getElementById("casesData").innerHTML= `Cases: ${dataObj.region.cities[0].confirmed}`;
     if (parseInt(dataObj.region.cities[0].confirmed_diff) > 0) {
-        confirmedCasesEl.textContent = `Confirmed cases: ${dataObj.region.cities[0].confirmed} (+${dataObj.region.cities[0].confirmed_diff} cases compared to the previous day)`;
+   
+        document.getElementById("casesDiff").innerHTML= `Cases Difference: ${dataObj.region.cities[0].confirmed_diff}`;
+       // confirmedCasesEl.textContent = `Confirmed cases: ${dataObj.region.cities[0].confirmed} (+${dataObj.region.cities[0].confirmed_diff} cases compared to the previous day)`;
     }
     else if (parseInt(dataObj.region.cities[0].confirmed_diff) === 0) {
-        confirmedCasesEl.textContent = `Confirmed cases: ${dataObj.region.cities[0].confirmed} (no new cases compared to the previous day)`;
+        document.getElementById("casesDiff").innerHTML= `Cases Difference: (no new cases compared to the previous day)`;
+     //   confirmedCasesEl.textContent = `Confirmed cases: ${dataObj.region.cities[0].confirmed} (no new cases compared to the previous day)`;
     }
     else {
-        confirmedCasesEl.textContent = `Confirmed cases: ${dataObj.region.cities[0].confirmed} (${dataObj.region.cities[0].confirmed_diff} cases compared to the previous day)`;
+        document.getElementById("casesDiff").innerHTML= `Cases Difference: ${dataObj.region.cities[0].confirmed_diff} cases compared to the previous day)`;
+
+     //   confirmedCasesEl.textContent = `Confirmed cases: ${dataObj.region.cities[0].confirmed} (${dataObj.region.cities[0].confirmed_diff} cases compared to the previous day)`;
     }
-    covidStatsEl.appendChild(confirmedCasesEl);
+   // covidStatsEl.appendChild(confirmedCasesEl);
     // display deaths and diff deaths
-    var deathsEl = document.createElement('li');
+   // var deathsEl = document.createElement('li');
+    dateEl.id="deaths";
+    document.getElementById("deathsData").innerHTML= `Deaths: ${dataObj.region.cities[0].deaths}`;
     if (parseInt(dataObj.region.cities[0].deaths_diff) > 0) {
-        deathsEl.textContent = `Deaths: ${dataObj.region.cities[0].deaths} (+${dataObj.region.cities[0].deaths_diff} deaths compared to the previous day)`;
+        document.getElementById("deathsDiff").innerHTML= `Deaths Difference: ${dataObj.region.cities[0].deaths_diff}`;
+      //  deathsEl.textContent = `Deaths: ${dataObj.region.cities[0].deaths} (+${dataObj.region.cities[0].deaths_diff} deaths compared to the previous day)`;
     }
     else if (parseInt(dataObj.region.cities[0].deaths_diff) === 0) {
-        deathsEl.textContent = `Deaths: ${dataObj.region.cities[0].deaths} (no new deaths compared to the previous day)`;
+        document.getElementById("deathsDiff").innerHTML= `Deaths Difference: (no new deaths compared to the previous day)`;
+      //  deathsEl.textContent = `Deaths: ${dataObj.region.cities[0].deaths} (no new deaths compared to the previous day)`;
     }
     else {
-        deathsEl.textContent = `Deaths: ${dataObj.region.cities[0].deaths} (${dataObj.region.cities[0].deaths_diff} deaths compared to the previous day)`;
+        document.getElementById("deathsDiff").innerHTML= `Deaths Difference: ${dataObj.region.cities[0].deaths_diff} cases compared to the previous day)`;
+       // deathsEl.textContent = `Deaths: ${dataObj.region.cities[0].deaths} (${dataObj.region.cities[0].deaths_diff} deaths compared to the previous day)`;
     }
-    covidStatsEl.appendChild(deathsEl);
+   // covidStatsEl.appendChild(deathsEl);
     // display date
-    var fatalityRateEl = document.createElement('li');
-    fatalityRateEl.textContent = `Fatality rate in ${dataObj.region.province}: ${dataObj.fatality_rate}`;
-    covidStatsEl.appendChild(fatalityRateEl);
+   // var fatalityRateEl = document.createElement('li');
+    dateEl.id="fatalityRate";
+    document.getElementById("fatalityRate").innerHTML= `Fatality rate: ${dataObj.fatality_rate}`;
+   // fatalityRateEl.textContent = `Fatality rate in ${dataObj.region.province}: ${dataObj.fatality_rate}`;
+   // covidStatsEl.appendChild(fatalityRateEl);
 };
 
-// function to populate the search history and save to local storage
-var searchHistory = () => {
-    // clear previous search history
-    searchHistoryEl.innerHTML = '';
-    // loop through searchHistoryArr to display user search history
-    searchHistoryArr.forEach(obj => {
-        var cityStateEl = document.createElement('li');
-        cityStateEl.setAttribute('class', 'list-group-item');
-        cityStateEl.textContent = `${obj.city}, ${obj.state}`;
-        searchHistoryEl.appendChild(cityStateEl);
-    });
-};
-
-// function to reset drop down lists
+//function to reset drop down lists
 var clearFilters = (event) => {
     pickedState = false;
     pickedCity = false;
@@ -223,29 +202,8 @@ var clearFilters = (event) => {
     makeDropDownLists();
 };
 
-// function to handle click on a city/state pair displayed in the search history
-var searchHistoryClickHandler = event => {
-    var cityState = event.target.textContent;
-    var inputCity = cityState.split(', ')[0];
-    var inputState = cityState.split(', ')[1];
-    fetchCovidData(inputCity, inputState);
-}
-
-// function to clear the search history
-var clearSearchHistory = () => {
-    searchHistoryArr = [];
-    localStorage.setItem('searchHistoryArr', JSON.stringify(searchHistoryArr));
-    searchHistory();
-};
-
-// event listeners
+makeDropDownLists();
 statesEl.addEventListener('change', stateSelectionHandler);
 citiesEl.addEventListener('change', citySelectionHandler);
 filterButton.addEventListener('click', searchClickHandler);
 clearButton.addEventListener('click', clearFilters);
-searchHistoryEl.addEventListener('click', searchHistoryClickHandler);
-delHistory.addEventListener('click', clearSearchHistory);
-
-// prepare drop down lists and display search history stored in local storage upon opening the app
-makeDropDownLists();
-searchHistory();
