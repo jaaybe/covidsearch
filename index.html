@@ -29,49 +29,33 @@
   </head>
 
   <body>
-      <!--Navbar-->
-    <nav class="navbar navbar-expand-sm navbar-dark sticky-top">
-      <a class="navbar-brand nav-link disabled" id="logo" href="#!"
-        >Co<span style="color: #086972;">Vie</span></a>
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" id="search" href="#stateCard"
-            ><i class="fa fa-search"></i> Search</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" id="about" href="#aboutlink">About</a>
-        </li>
-      </ul>
-    </nav>
+  <!--Logo-->
+  <header>
+    <h1 id="logo">
+      Co<span style="color: #f54291;">Vie</span> SEARCH</a></h1>
+    <br />
+  </header>
+    
+  <!-- SEARCH INPUT -->
+    
+  <section style="width: 100%; background-color: #1b6ca8;">
+    <br />
 
-    <div>
-      <section><img src="covidimg.png" alt="virus" class="img-responsive img-rounded"
-        style="max-height: 20%; max-width: 20%; float: right"></section>
-    
-      <!-- SEARCH INPUT -->
-    
-      <section style="width: 100%; background-color: #a6dcef;">
-      <br />
-      <br />
-      <br />
-      <br />
-        <div class="row">
-          <div class="col-4">
-            <div class="card" id="stateCard">
-               <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
+    <div id="snippet" class="text-white">
+      <p>COVID-19 by the numbers for your State and County </p>
+    </div>
+    <div class="row">
+        <div class="col-xs-5">
+          <div class="card" id="stateCard">
+            <br />
+
               <div class="card-body">
-                <label> Select State: </label>
+                <label class="text-white"> Select State: </label>
                 <select id="states">
                   <option value=""></option>
                 </select>
                 <br />
-                <label> Select City: </label>&nbsp;&nbsp;&nbsp;&nbsp;<select
-                  id="cities" >
+                <label class="text-white">Select City: </label>&nbsp;<select id="cities">
                   <option value=""></option>
                 </select>
                 <br />
@@ -81,20 +65,23 @@
             </div>
           </div>
           <!--covid data -->
-          <div class="col-8" id="currentData">
+          <div class="col-xs-7">
+            <div class="card" id="stateCard">
+                <br />
+          <div class="card-body" id="currentData">
             <ul id="covid-stats" style="list-style-type:none;">
             </ul>
         </div>
     </section>
   
 
-      <section style="background-color: #a6dcef;">
+    <section style="background-color: white;">
         <br />
         <br />
         <div class="row">
           <div class="col-4">
             <div class="card" id="historyCard">
-              <div class="card-header">History</div>
+              <div class="card-header">Search History</div>
               <div class="card-body">
                 <div class="col-md-12">
                   <!--place holder for history-->
@@ -106,59 +93,62 @@
               </div>
             </div>
           </div>
+        </section>
           <!---map-->
-          <div class="col-7">
-            <div id="map">
-              <iframe
-                width="50%"
-                height="300px"
-                src="maps.html"
-                frameborder="1"
-                style="border: 1; float:center;"
-                allowfullscreen
-                target="new"
-            ></iframe>
+          <section>
+            <div class="row">
+              <div class="col-md-12">
+                <div id="map">
+                  <iframe width="100%" height="400px" src="maps.html" frameborder="1"
+                    style="list-style-type:none; border:0; float:center;" allowfullscreen></iframe>
+                </div>
+              </div>
             </div>
+            </div>
+            </div>
+          </section>
           </div>
-        </div>
-      </section>
-    </div>
-    <!--About-->
-    <section style="background-color: #84a9ac; "id="aboutlink">
-    <br />
-    <h2 >About this page</h2>
-    <p>
-      ou might want the model name or serial number of your Mac when checking
-      warranty coverage, searching for specifications or other information about
-      your model, creating a home inventory, and more. Identifying your Mac
-      model is also important when selling or giving away your Mac or learning
-      whether it's compatible with the latest operating system or other software
-      or hardware.
-    </p>
-    <br />
-    <br />
-    <br />
-</section>
-<section style="background-color: #84a9ac; "id="copyright">
-   <br />
-    <h2>Copyright</h2>
-    <p>
-      copyrightcopyrightcopyrightcopyrightcopyrightcopyrightcopyrightcopyrightcopyrightcopyrightcopyrightcopyrightcopyright
-    </p>
-    <br />
-</section>
-    <!--Footer-->
-    <footer>
-      <h2>&copy; 2020 Hot Stuff</h2>
-    </footer>
-
-
-    <!--Jquery-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!--Monents-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
-    <script src="assets/js/script.js"></script>
-  </body>
-
-</html>
+          <!--About-->
+          <section style="background-color: #eb4f1e; " id="aboutlink">
+            <br />
+            <h2>About this page</h2>
+            <p>
+              You might want the model name or serial number of your Mac when checking
+              warranty coverage, searching for specifications or other information about
+              your model, creating a home inventory, and more. Identifying your Mac
+              model is also important when selling or giving away your Mac or learning
+              whether it's compatible with the latest operating system or other software
+              or hardware.
+            </p>
+            <br />
+            <br />
+            <br />
+          </section>
+        
+          <!--Footer-->
+          <footer>
+            <h2 class="text-white">&copy; 2020 Hot Stuff</h2>
+          </footer>
+        
+          <!--Jquery-->
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+          <!--Monents-->
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+          <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
+          <script src="assets/js/script.js"></script>
+          <script src="assets/js/maps.js"></script>
+        </body>
+        
+        </html>
+        © 2020 GitHub, Inc.
+        Terms
+        Privacy
+        Security
+        Status
+        Help
+        Contact GitHub
+        Pricing
+        API
+        Training
+        Blog
+        About
