@@ -1,84 +1,195 @@
-:root {
+* {
     font-family: 'Ubuntu', serif;   
 }
 body {
-    background-color: #a6dcef;
+    background-color: white;
     color: black;
 }
-nav {
-    background-color: #ddf3f5;
-   
-}
 
+header {
+    background-color: #1b6ca8;
+}
 #logo {
-     font-family: 'Ubuntu', serif;
-     font-size: 65px;
-     text-shadow: 2px 2px 5px;
+
+    margin-left: 1rem;
+    font-size: 55px;
+     text-shadow: 1px 1px 1px;
  
 } 
-
-
-#search  {
-    font-size: 27px;
-    font-family: 'Ubuntu', serif;
-    color: #086972;
-    font-weight: bold;
+#snippet {
+    text-align: center;
+    font-size: 2em;
+    line-height:1.625;
     margin-left: 4rem;
-    text-shadow: 2px 2px 5px;
-}
-#about {
-    font-size: 27px;
-    font-family: 'Ubuntu', serif;
-    color: #086972;
-    font-weight: bold;
-    margin-left: 7rem;
-    text-shadow: 2px 2px 5px;
+    font-weight: 400;
 }
 
 #stateCard {
-    background-color: #a6dcef;
+    background-color: #1b6ca8;
     border:none;
+    font-size: 1.25em;
+    line-height:1.625;
+    font-weight: 400;
+}
+#lastUpdate {
+    font-size: 1em;
+    line-height:1.625;
+    font-weight: 300;
+}
+#confirmedCases {
+    font-size: 1.25em;
+    line-height:1.625;
+    font-weight: 400;
+
 }
 
+#fatalityRate {
+    font-size: 1em;
+    line-height:1.625;
+    font-weight: 300;
+}
+
+#deaths {
+    font-size: 1.25em;
+    line-height:1.625;
+    font-weight: 400;
+}
 #historyCard {
     
     border:none;
-    color: black;
+    color: #eb4f1e;
+    font-size: 1.25em;
+    line-height:1.625;
+    font-weight: 400;
+
 }
+#subBtn {
+    background-color: transparent;
+    cursor: pointer;
+    border-color: white;
+    text-align: center;
+    max-width: 100%;
+    white-space: nowrap;
+}
+#clearBtn {
+    background-color: transparent;
+    border-color: white;
+    cursor: pointer;
+    text-align: center;
+    max-width: 100%;
+    white-space: nowrap; 
+}
+#historyBtn {
+    background-color: transparent;
+    border-color: #eb4f1e;
+    cursor: pointer;
+    text-align: center;
+    max-width: 100%;
+    white-space: nowrap; 
+    color: #eb4f1e;
+} 
 label {
 font-size: 22px;
-font-family: 'Ubuntu', serif;
+
+}
+
+#currentData {
+    color: white;
+    letter-spacing: -0.075rem;
+    width: 100%;
+    line-height: 1.25;
+    font-weight: 400;
+    font-size: 1.15em; 
+   
+    
 }
 #aboutlink h2 {
-    font-size: 27px;
-    font-family: 'Ubuntu', serif;
-    color: #086972;
-    font-weight: bold;
-    margin-left: 2rem;
+    font-size: 2em;
+    line-height:1.625;
+    margin-left: 1rem;
+    font-weight: 400;
+    color: #ffffff;
 }
 #aboutlink p {
-    font-size: 18px;
+    font-size: 1.25em;
     margin-left: 1rem;
+    color: #ffffff;
+    font-weight: 300;
+    line-height:1.625;
 }
-#copyright h2 {
-    font-size: 27px;
-    font-family: 'Ubuntu', serif;
-    color: #086972;
-    font-weight: bold;
-    margin-left: 2rem;
-       }
 
-#copyright p {
-    font-size: 18px;
-    margin-left: 1rem;
-}
 footer h2 {
    text-align: center;
    width: 100%;
    font-size: 18px;
-   background-color: #84a9ac;
- 
-   
+   background-color: #eb4f1e;  
+}
+@media screen and (max-width: 980px) {
+#logo {
+    font-size: 50px;
+    position: relative;
 }
 
+}
 
+@media screen and (max-width: 768px) {
+    #logo {
+    font-size: 40px;
+    position: relative;
+    }
+    
+}
+
+@media screen and (max-width: 575px) {
+
+    #logo {
+        font-size: 30px;
+        position: relative;
+        }
+#snippet {
+            text-align: left;
+            font-size: 1.5em;
+            line-height:1;
+            margin-left: 2rem;
+            font-weight: 300;
+        }
+
+
+
+ #stateCard {
+            font-size: .75em;   
+            font-weight: 200;
+        }
+        
+      #historyCard {
+             font-size: .75em;
+     font-weight: 200;
+        
+        }
+        #subBtn {
+           font-size: smaller;
+            text-align: center;
+            max-width:70%;
+            white-space: wrap;
+        }
+        #clearBtn {
+            font-size: smaller;
+            text-align: left;
+            max-width: 70%;
+            white-space: wrap; 
+        }
+        #historyBtn {
+            font-size: smaller;
+            text-align: center;
+            max-width: 70%;
+            white-space: wrap; 
+           
+        }     
+}
+
+@media screen and (max-width: 768px) {
+    #snippet {
+        text-align: left;
+        margin-left: .25em;
+    }
+}
