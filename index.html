@@ -1,163 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <!--Bootstrap-->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
-    <!--Free Icons-->
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
-      crossorigin="anonymous"
-    />
-    <!--Font-->
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Ubuntu"
-    />
-    <!--link to CSS-->
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
-    <title>CoVie SEARCH</title>
-  </head>
 
-  <body>
-      <!--Navbar-->
-    <nav class="navbar navbar-expand-sm navbar-dark sticky-top">
-      <a class="navbar-brand nav-link disabled" id="logo" href="#!"
-        >Co<span style="color: #086972;">Vi</span>e</a
-      >
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" id="search" href="#stateCard"
-            ><i class="fa fa-search"></i> Search</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" id="about" href="#aboutlink">About</a>
-        </li>
-      </ul>
-    </nav>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <!--Bootstrap-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+  <!--Free Icons-->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+  <!--Font-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu" />
+  <!--link to CSS-->
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+  <title>CoVie SEARCH</title>
+</head>
 
-    <div>
-      <section><img src="covidimg.png" alt="virus" class="img-responsive img-rounded"
-        style="max-height: 20%; max-width: 20%; float: right"></section>
-    
-      <!-- SEARCH INPUT -->
-    
-      <section style="width: 100%; background-color: #a6dcef;">
-      <br />
-      <br />
-      <br />
-      <br />
-        <div class="row">
-          <div class="col-4">
-            <div class="card" id="stateCard">
-               <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-              <div class="card-body">
-                <label> Select State: </label>
-                <select id="states">
-                  <option value=""></option>
-                </select>
-                <br />
-                <label> Select City: </label>&nbsp;&nbsp;&nbsp;&nbsp;<select
-                  id="cities" >
-                  <option value=""></option>
-                </select>
-                <br />
-                <br />
-                <button type="button" id="subBtn" class="btn btn-primary">Search</button>
-                <button type="button" id="clearBtn" class="btn btn-primary">Clear Filters</button></div>
-            </div>
-          </div>
-          <div class="col-8">
-            <div id="table-area" class="">
-              <table id="currentData" class="table table-striped">
-                <thead>
-                  <tr>
-                    <th class="table-head" id="lastUpdate">Last Updated</th>
-                    <th class="table-head" id="stateData">State</th>
-                    <th class="table-head" id="cityData">City</th>
-                    <th class="table-head" id="casesData">Cases</th>
-                    <th class="table-head" id="casesDiff">Cases-Diff</th>
-                    <th class="table-head" id="deathsData">Deaths</th>
-                    <th class="table-head" id="deathsDiff">Deaths-Diff</th>
-                  </tr>
-                </thead>
-                <tbody></tbody>
-              </table>
-            </div>
-          <!--covid data -->
-          <div class="col-8" id="currentData">
-            <ul id="covid-stats" style="list-style-type:none;">
-                <h3 class="card-title"></h3>
-            </ul>
-        </div>
-    </section>
-   <!--<div class="col-8" id="currentData">
-            <ul id="covid-stats" style="list-style-type: none;">
-              <h3 class="card-title"></h3>
-              <li id="city">City:</li>
-              <li id="date">Date:</li>
-              <li id="confirmed">Confirmed:</li>
-              <li id="deaths">Deaths:</li>
-              <li id="recovered">Recovered:</li>
-              <li id="active">Active:</li>
-              <li id="fatality_rate">Fatality Rate:</li>
-            </ul>
-          </div>
-        </div>-->
-  
-
-      <section style="background-color: #a6dcef;">
-        <br />
-        <br />
-        <div class="row">
-          <div class="col-4">
-            <div class="card" id="historyCard">
-              <div class="card-header">History</div>
-              <div class="card-body">
-                <div class="col-md-12">
-                  <!--place holder for history-->
-                  <div id="historyData"></div>
-                </div>
-                <br />
-                <div class="col-md-12">
-                  <button type="button" class="btn btn-primary">Clear</button>
-           </div>
-              </div>
-            </div>
-          </div>
-          <!---map-->
-          <div class="col-7">
-            <div id="map">
-              <iframe
-                width="50%"
-                height="300px"
-                src="maps.html"
-                frameborder="1" style="border:0; float:center;" allowfullscreen></iframe>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-    <!--About-->
-    <section style="background-color: #84a9ac; "id="aboutlink">
+<body>
+  <!--Logo-->
+  <header>
+    <h1 id="logo">
+      Co<span style="color: #f54291;">Vi</span>e SEARCH</a></h1>
     <br />
-    <h2 >About this page</h2>
+  </header>
+
+  <!-- SEARCH INPUT -->
+
+  <section style="width: 100%; background-color: #1b6ca8;">
+    <br />
+
+    <div id="snippet" class="text-white">
+      <p>COVID-19 by the numbers for your State and City </p>
+    </div>
+    <div class="row">
+      <div class="col-xs-5">
+        <div class="card" id="stateCard">
+          <br />
+
+          <div class="card-body">
+            <label class="text-white"> Select State: </label>
+            <select id="states">
+              <option value=""></option>
+            </select>
+            <br />
+            <label class="text-white"> Select City: </label>&nbsp;<select id="cities">
+              <option value=""></option>
+            </select>
+            <br />
+            <br />
+            <button type="button" id="subBtn" class="btn btn-primary">Search</button>
+            <button type="button" id="clearBtn" class="btn btn-primary">Clear Filters</button></div>
+        </div>
+      </div>
+
+
+      <div class="col-xs-7">
+        <div class="card" id="stateCard">
+          <br />
+
+          <div class="card-body" id="currentData">
+            <label class="text-white" id="lastUpdate"></label>
+            <br />
+            <label class="text-white" id="casesData"></label>
+            <br />
+            <label class="text-white" id="casesDiff"></label>
+            <br />
+            <label class="text-white" id="deathsData"></label>
+            <br />
+            <label class="text-white" id="deathsDiff"></label>
+            <br />
+            <label class="text-white" id="fatalityRate"></label>
+ </div>
+         
+  </section>
+  <section style="background-color: white;">
+    <br />
+    <br />
+    <div class="row">
+      <div class="col-4">
+        <div class="card" id="historyCard">
+          <div class="card-header"> Search History</div>
+          <div class="card-body">
+            <div class="col-md-12">
+              <!--place holder for history-->
+              <div id="historyData"></div>
+            </div>
+            <br />
+            <div class="col-md-12">
+              <button type="button" class="btn btn-primary" id="historyBtn">Clear</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!---map-->
+  </section>
+  <section>
+    <div class="row">
+      <div class="col-md-12">
+        <div id="map">
+          <iframe width="100%" height="400px" src="maps.html" frameborder="1"
+            style="list-style-type:none; border:0; float:center;" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+  </section>
+  </div>
+  <!--About-->
+  <section style="background-color: #eb4f1e; " id="aboutlink">
+    <br />
+    <h2>About this page</h2>
     <p>
-      ou might want the model name or serial number of your Mac when checking
+      You might want the model name or serial number of your Mac when checking
       warranty coverage, searching for specifications or other information about
       your model, creating a home inventory, and more. Identifying your Mac
       model is also important when selling or giving away your Mac or learning
@@ -167,26 +124,20 @@
     <br />
     <br />
     <br />
-</section>
-<section style="background-color: #84a9ac; "id="copyright">
-   <br />
-    <h2>Copyright</h2>
-    <p>
-      copyrightcopyrightcopyrightcopyrightcopyrightcopyrightcopyrightcopyrightcopyrightcopyrightcopyrightcopyrightcopyright
-    </p>
-    <br />
-</section>
-    <!--Footer-->
-    <footer>
-      <h2>&copy; 2020 Hot Stuff</h2>
-    </footer>
+  </section>
 
-    <!--Jquery-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!--Monents-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
-    <script src="assets/js/script.js"></script>
-    <script src="assets/js/maps.js"></script>
-  </body>
+  <!--Footer-->
+  <footer>
+    <h2 class="text-white">&copy; 2020 Hot Stuff</h2>
+  </footer>
+
+  <!--Jquery-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!--Monents-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
+  <script src="assets/js/script.js"></script>
+  <script src="assets/js/maps.js"></script>
+</body>
+
 </html>
