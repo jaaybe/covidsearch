@@ -1,154 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <!--Bootstrap-->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
-    <!--Free Icons-->
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
-      crossorigin="anonymous"
-    />
-    <!--Font-->
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Ubuntu"
-    />
-    <!--link to CSS-->
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
-    <title>CoVie SEARCH</title>
-  </head>
 
-  <body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <!--Bootstrap-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+  <!--Free Icons-->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+  <!--Font-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu" />
+  <!--link to CSS-->
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+  <title>CoVie SEARCH</title>
+</head>
+
+<body>
   <!--Logo-->
   <header>
     <h1 id="logo">
-      Co<span style="color: #f54291;">Vie</span> SEARCH</a></h1>
+      Co<span style="color: #f54291;">Vi</span>e SEARCH</a></h1>
     <br />
   </header>
-    
+
   <!-- SEARCH INPUT -->
-    
+
   <section style="width: 100%; background-color: #1b6ca8;">
     <br />
 
     <div id="snippet" class="text-white">
-      <p>COVID-19 by the numbers for your State and County </p>
+      <p>COVID-19 by the numbers for your State and City </p>
     </div>
     <div class="row">
-        <div class="col-xs-5">
-          <div class="card" id="stateCard">
-            <br />
+      <div class="col-xs-5">
+        <div class="card" id="stateCard">
+          <br />
 
-              <div class="card-body">
-                <label class="text-white"> Select State: </label>
-                <select id="states">
-                  <option value=""></option>
-                </select>
-                <br />
-                <label class="text-white">Select City: </label>&nbsp;<select id="cities">
-                  <option value=""></option>
-                </select>
-                <br />
-                <br />
-                <button type="button" id="subBtn" class="btn btn-primary">Search</button>
-                <button type="button" id="clearBtn" class="btn btn-primary">Clear Filters</button></div>
-            </div>
-          </div>
-          <!--covid data -->
-          <div class="col-xs-7">
-            <div class="card" id="stateCard">
-                <br />
-          <div class="card-body" id="currentData">
-            <ul id="covid-stats" style="list-style-type:none;">
-            </ul>
+          <div class="card-body">
+            <label class="text-white"> Select State: </label>
+            <select id="states">
+              <option value=""></option>
+            </select>
+            <br />
+            <label class="text-white"> Select City: </label>&nbsp;<select id="cities">
+              <option value=""></option>
+            </select>
+            <br />
+            <br />
+            <button type="button" id="subBtn" class="btn btn-primary">Search</button>
+            <button type="button" id="clearBtn" class="btn btn-primary">Clear Filters</button></div>
         </div>
-    </section>
-  
+      </div>
 
-    <section style="background-color: white;">
-        <br />
-        <br />
-        <div class="row">
-          <div class="col-4">
-            <div class="card" id="historyCard">
-              <div class="card-header">Search History</div>
-              <div class="card-body">
-                <div class="col-md-12">
-                  <!--place holder for history-->
-                <div id="searchHistory">
-                    <ul class="list-group"></ul>
-                    <button id="delHistory" type="submit" class="btn bg-default mt-2 text-secondary"><i class="fa fa-trash mr-2 text-danger"></i>Delete Search History</button>
-                </div>
-                </div>
-              </div>
+
+      <div class="col-xs-7">
+        <div class="card" id="stateCard">
+          <br />
+
+          <div class="card-body" id="currentData">
+            <label class="text-white" id="lastUpdate"></label>
+            <br />
+            <label class="text-white" id="casesData"></label>
+            <br />
+            <label class="text-white" id="casesDiff"></label>
+            <br />
+            <label class="text-white" id="deathsData"></label>
+            <br />
+            <label class="text-white" id="deathsDiff"></label>
+            <br />
+            <label class="text-white" id="fatalityRate"></label>
+ </div>
+         
+  </section>
+  <section style="background-color: white;">
+    <br />
+    <br />
+    <div class="row">
+      <div class="col-4">
+        <div class="card" id="historyCard">
+          <div class="card-header"> Search History</div>
+          <div class="card-body">
+            <div class="col-md-12">
+              <!--place holder for history-->
+              <div id="historyData"></div>
+            </div>
+            <br />
+            <div class="col-md-12">
+              <button type="button" class="btn btn-primary" id="historyBtn">Clear</button>
             </div>
           </div>
-        </section>
-          <!---map-->
-          <section>
-            <div class="row">
-              <div class="col-md-12">
-                <div id="map">
-                  <iframe width="100%" height="400px" src="maps.html" frameborder="1"
-                    style="list-style-type:none; border:0; float:center;" allowfullscreen></iframe>
-                </div>
-              </div>
-            </div>
-            </div>
-            </div>
-          </section>
-          </div>
-          <!--About-->
-          <section style="background-color: #eb4f1e; " id="aboutlink">
-            <br />
-            <h2>About this page</h2>
-            <p>
-              You might want the model name or serial number of your Mac when checking
-              warranty coverage, searching for specifications or other information about
-              your model, creating a home inventory, and more. Identifying your Mac
-              model is also important when selling or giving away your Mac or learning
-              whether it's compatible with the latest operating system or other software
-              or hardware.
-            </p>
-            <br />
-            <br />
-            <br />
-          </section>
-        
-          <!--Footer-->
-          <footer>
-            <h2 class="text-white">&copy; 2020 Hot Stuff</h2>
-          </footer>
-        
-          <!--Jquery-->
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-          <!--Monents-->
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-          <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
-          <script src="assets/js/script.js"></script>
-          <script src="assets/js/maps.js"></script>
-        </body>
-        
-        </html>
-        © 2020 GitHub, Inc.
-        Terms
-        Privacy
-        Security
-        Status
-        Help
-        Contact GitHub
-        Pricing
-        API
-        Training
-        Blog
-        About
+        </div>
+      </div>
+      <!---map-->
+  </section>
+  <section>
+    <div class="row">
+      <div class="col-md-12">
+        <div id="map">
+          <iframe width="100%" height="400px" src="maps.html" frameborder="1"
+            style="list-style-type:none; border:0; float:center;" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+  </section>
+  </div>
+  <!--About-->
+  <section style="background-color: #eb4f1e; " id="aboutlink">
+    <br />
+    <h2>About this page</h2>
+    <p>
+      You might want the model name or serial number of your Mac when checking
+      warranty coverage, searching for specifications or other information about
+      your model, creating a home inventory, and more. Identifying your Mac
+      model is also important when selling or giving away your Mac or learning
+      whether it's compatible with the latest operating system or other software
+      or hardware.
+    </p>
+    <br />
+    <br />
+    <br />
+  </section>
+
+  <!--Footer-->
+  <footer>
+    <h2 class="text-white">&copy; 2020 Hot Stuff</h2>
+  </footer>
+
+  <!--Jquery-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!--Monents-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
+  <script src="assets/js/script.js"></script>
+  <script src="assets/js/maps.js"></script>
+</body>
+
+</html>
