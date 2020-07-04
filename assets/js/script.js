@@ -5,10 +5,14 @@ var pickedCity = false;
 var inputLat = '';
 var inputLon = '';
 
+// retrieve search history
+var searchHistoryArr = JSON.parse(localStorage.getItem('searchHistoryArr')) || [];
+
 // get reference to the table body and the buttons
 var statesEl = document.querySelector('#states');
 var citiesEl = document.querySelector('#cities');
 var covidStatsEl = document.querySelector('#covid-stats');
+var searchHistoryEl = document.querySelector('#searchHistory');
 var filterButton = document.querySelector('#subBtn');
 var clearButton = document.querySelector('#clearBtn');
 
@@ -134,6 +138,22 @@ var searchClickHandler = (event) => {
     .then(response => response.json())
     .then(res => displayCovidStats(res.data[0]))
     .catch(err => console.log(err));
+    // display city and state in search history if not already there
+    var inThere = false;
+    searchHistoryArr.forEach(obj => {
+        if (obj.city === inputCity && obj.state === inputState) {
+            return inThere = true;
+        }
+    });
+    if (!inThere) {
+        var newObj = {              // create new city/state pair
+            city: inputCity,
+            state: inputState
+        }
+        searchHistoryArr.push(newObj); // add new city/state pair
+        localStorage.setItem('searchHistoryArr', JSON.stringify(searchHistoryArr)); // save updated array
+        searchHistory();   // display updated search history
+    }
 };
 
 // function to display covid stats fectched from covid api (only one city/state pair mvp)
@@ -177,7 +197,27 @@ var displayCovidStats = (dataObj) => {
     covidStatsEl.appendChild(fatalityRateEl);
 };
 
-//function to reset drop down lists
+// function to populate the search history and save to local storage
+var searchHistory = () => {
+    // clear previous search history
+    searchHistoryEl.innerHTML = '';
+    // loop through searchHistoryArr to display user search history
+    searchHistoryArr.forEach(obj => {
+        var cityStateEl = document.createElement('li');
+        cityStateEl.setAttribute('class', 'list-group-item');
+        cityStateEl.textContent = `${obj.city}, ${obj.state}`;
+        searchHistoryEl.appendChild(cityStateEl);
+    });
+};
+
+// function to clear the search history
+var clearSearchHistory = () => {
+    searchHistoryArr = [];
+    localStorage.setItem('searchHistoryArr', JSON.stringify(searchHistoryArr));
+    searchHistory();
+}
+
+// function to reset drop down lists
 var clearFilters = (event) => {
     pickedState = false;
     pickedCity = false;
@@ -187,6 +227,7 @@ var clearFilters = (event) => {
 };
 
 makeDropDownLists();
+searchHistory();
 statesEl.addEventListener('change', stateSelectionHandler);
 citiesEl.addEventListener('change', citySelectionHandler);
 filterButton.addEventListener('click', searchClickHandler);
