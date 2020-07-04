@@ -1,4 +1,4 @@
-console.log(inputLat, inputLon);
+
 
 (function (exports) {
     "use strict";
