@@ -13,6 +13,8 @@
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
   <!--Font-->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu" />
+  <!--Favicon-->
+  <link rel="icon" href="covie-heart.png" sizes="32x32">
   <!--link to CSS-->
   <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
   <title>CoVie SEARCH</title>
@@ -39,19 +41,22 @@
         <div class="card" id="stateCard">
           <br />
 
-          <div class="card-body">
-            <label class="text-white"> Select State: </label>
-            <select id="states">
-              <option value=""></option>
-            </select>
-            <br />
-            <label class="text-white"> Select City: </label>&nbsp;<select id="cities">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Search by State and City</h5>
+              <label class="text-black"> Select State: </label>
+              <select id="states">
+                <option value=""></option>
+              </select>
+              <br />
+            <label class="text-black"> Select City: </label>&nbsp;<select id="cities">
               <option value=""></option>
             </select>
             <br />
             <br />
             <button type="button" id="subBtn" class="btn btn-primary">Search</button>
             <button type="button" id="clearBtn" class="btn btn-primary">Clear Filters</button></div>
+          </div>
         </div>
       </div>
 
@@ -60,7 +65,7 @@
         <div class="card" id="stateCard">
           <br />
 
-          <div class="card-body" id="currentData">
+          <div class="card-body-data" id="currentData">
             <label class="text-white" id="lastUpdate"></label>
             <br />
             <label class="text-white" id="casesData"></label>
@@ -82,7 +87,7 @@
       <div class="col-4">
         <div class="card" id="historyCard">
           <div class="card-header"> Search History</div>
-          <div class="card-body">
+          <div class="card-body-history">
             <div class="col-md-12">
               <!--place holder for history-->
               <div id="historyData"></div>

@@ -23,7 +23,15 @@ header {
     margin-left: 4rem;
     font-weight: 400;
 }
-
+.card-body {
+    background-color: #a6dcef;
+}
+.card-body-data {
+    background-color: #f2aaaa;
+}
+.card-body-history {
+    background-color: #e36387;
+}
 #stateCard {
     background-color: #1b6ca8;
     border:none;
@@ -71,6 +79,13 @@ header {
     max-width: 100%;
     white-space: nowrap;
 }
+
+#subBtn:hover {
+    background-color: #ddf3f5;
+    color: black;
+    border-color: black;
+}
+
 #clearBtn {
     background-color: transparent;
     border-color: white;
@@ -79,15 +94,29 @@ header {
     max-width: 100%;
     white-space: nowrap; 
 }
+
+#clearBtn:hover {
+    background-color: #ddf3f5;
+    color: black;
+    border-color: black;
+}
+
 #historyBtn {
     background-color: transparent;
-    border-color: #eb4f1e;
+    border-color: white;
     cursor: pointer;
     text-align: center;
     max-width: 100%;
     white-space: nowrap; 
-    color: #eb4f1e;
+    color: white;
 } 
+
+#historyBtn:hover {
+    background-color: #f2aaaa;
+    color: black;
+    border-color: black;
+}
+
 label {
 font-size: 22px;
 
