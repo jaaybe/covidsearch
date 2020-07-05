@@ -11,6 +11,7 @@ var citiesEl = document.querySelector('#cities');
 var covidStatsEl = document.querySelector('#covid-stats');
 var filterButton = document.querySelector('#subBtn');
 var clearButton = document.querySelector('#clearBtn');
+var iframeMapEl = document.querySelector('#iframeMap');
 
 // utility function to display list of unique values
 var uniqueValues = ((value, index, self) => self.indexOf(value) === index);
@@ -132,7 +133,11 @@ var searchClickHandler = (event) => {
 	    }
     })
     .then(response => response.json())
-    .then(res => displayCovidStats(res.data[0]))
+    .then(res => {
+        // city is in here
+        console.log(res.data)
+        displayCovidStats(res.data[0])
+    })
     .catch(err => console.log(err));
 };
 
@@ -140,9 +145,14 @@ var searchClickHandler = (event) => {
 var displayCovidStats = (dataObj) => {
     // clear old content
     covidStatsEl.innerHTML = '';
-    // extract lat and lon for maps purposes
+    
+    // extract lat and lon for maps purposes *********************************************
     inputLat = dataObj.region.cities[0].lat;
     inputLon = dataObj.region.cities[0].long;
+
+    iframeMapEl.setAttribute('src', 'maps.html?lat='+ inputLat + '&lon=' + inputLon );
+    // iframeMapEl.contentWindow.location.reload();
+
     // display date
     var dateEl = document.createElement('li');
     dateEl.textContent = `As of: ${dataObj.region.cities[0].date}`;

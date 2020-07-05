@@ -1,3 +1,8 @@
+/* added this global call for the font - and SANS-serif (not serif) as an alt */
+* {
+    font-family: "Ubuntu", sans-serif;
+}
+
 :root {
     font-family: 'Ubuntu', serif;   
 }
@@ -49,6 +54,13 @@ label {
 font-size: 22px;
 font-family: 'Ubuntu', serif;
 }
+
+/* removed padded from default col:12 - JB */
+
+.mapContainer {
+    padding: 0;
+}
+
 #aboutlink h2 {
     font-size: 27px;
     font-family: 'Ubuntu', serif;
