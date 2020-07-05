@@ -1,5 +1,5 @@
 * {
-    font-family: 'Ubuntu', serif;   
+    font-family: "Montserrat", Arial, Helvetica, sans-serif;
 }
 body {
     background-color: white;
@@ -10,18 +10,18 @@ header {
     background-color: #1b6ca8;
 }
 #logo {
-
+   max-width: 250px;
+    max-height: 250px;
     margin-left: 1rem;
-    font-size: 55px;
-     text-shadow: 1px 1px 1px;
- 
+    
 } 
 #snippet {
     text-align: center;
-    font-size: 2em;
+    font-size: 1.85em;
     line-height:1.625;
     margin-left: 4rem;
     font-weight: 400;
+    margin-top: 7%;
 }
 
 #stateCard {
@@ -30,30 +30,21 @@ header {
     font-size: 1.25em;
     line-height:1.625;
     font-weight: 400;
+    margin-top: 3%;
 }
-#lastUpdate {
-    font-size: 1em;
-    line-height:1.625;
-    font-weight: 300;
-}
-#confirmedCases {
+
+#fatalityRate,
+#deaths,
+#confirmedCases,
+#lastUpdate 
+
+ {
     font-size: 1.25em;
     line-height:1.625;
     font-weight: 400;
 
 }
 
-#fatalityRate {
-    font-size: 1em;
-    line-height:1.625;
-    font-weight: 300;
-}
-
-#deaths {
-    font-size: 1.25em;
-    line-height:1.625;
-    font-weight: 400;
-}
 #historyCard {
     
     border:none;
@@ -63,7 +54,9 @@ header {
     font-weight: 400;
 
 }
-#subBtn {
+#subBtn,
+#clearBtn
+ {
     background-color: transparent;
     cursor: pointer;
     border-color: white;
@@ -71,14 +64,7 @@ header {
     max-width: 100%;
     white-space: nowrap;
 }
-#clearBtn {
-    background-color: transparent;
-    border-color: white;
-    cursor: pointer;
-    text-align: center;
-    max-width: 100%;
-    white-space: nowrap; 
-}
+
 #historyBtn {
     background-color: transparent;
     border-color: #eb4f1e;
@@ -150,19 +136,19 @@ footer h2 {
 @media screen and (max-width: 575px) {
 
     #logo {
-        font-size: 30px;
-        position: relative;
+        max-width: 150px;
+        max-height: 150px;
         }
 #snippet {
             text-align: left;
-            font-size: 1.5em;
+            font-size: 1.25em;
             line-height:1;
-            margin-left: 2rem;
             font-weight: 300;
         }
 
-
-
+#card-body {
+    font-size-adjust: inherit;
+}
  #stateCard {
             font-size: .75em;   
             font-weight: 200;
@@ -173,25 +159,30 @@ footer h2 {
      font-weight: 200;
         
         }
-        #subBtn {
-           font-size: smaller;
-            text-align: center;
-            max-width:70%;
-            white-space: wrap;
-        }
-        #clearBtn {
+label {
+    font-size: 1.75em;
+}
+       
+        #clearBtn,
+        #subBtn
+         {
             font-size: smaller;
             text-align: left;
             max-width: 70%;
             white-space: wrap; 
-        }
-        #historyBtn {
-            font-size: smaller;
-            text-align: center;
-            max-width: 70%;
-            white-space: wrap; 
-           
-        }     
+         }
+       
+      #historyBtn {
+                font-size: .70em;
+                align-self: left;
+                text-align: left;
+            }
+ #aboutlink {
+    font-size: .75em;
+}
+#aboutlink h2 {
+    font-size: 1.55em;
+}
 }
 
 @media screen and (max-width: 768px) {
