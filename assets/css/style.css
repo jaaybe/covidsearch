@@ -64,6 +64,21 @@ header {
     max-width: 100%;
     white-space: nowrap;
 }
+#subBtn:hover  {
+    background-color: #ddf3f5;
+    color: black;
+    border-color: black;
+}
+#clearBtn:hover  {
+    background-color: #ddf3f5;
+    color: black;
+    border-color: black;
+}
+#historyBtn:hover {
+    background-color: #f2aaaa;
+    color: black;
+    border-color: black;
+}
 
 #historyBtn {
     background-color: transparent;
