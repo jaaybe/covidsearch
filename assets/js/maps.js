@@ -1,12 +1,25 @@
+(function(exports) {
+    'use strict';
 
+    var url = new URL(window.location)
+    var lat = url.searchParams.get('lat');
+    var lon = url.searchParams.get('lon');
 
-(function (exports) {
-    "use strict";
-
-    var losAngeles = {
-        lat: 34.0522,
-        lng: -118.2437
-    };
+    var coord;
+    
+    if (lat && lon) {
+        coord = {
+            lat: Number(lat),
+            lng: Number(lon),
+        };
+        console.log(coord)
+    } else {
+        // los angeles is default
+        coord = {
+            lat: 34.0522,
+            lng: -118.2437
+        };
+    }
 
     // This example requires the Places library. Include the libraries=places
     // parameter when you first load the API. For example:
@@ -16,8 +29,8 @@
         // Create the map.
 
         exports.map = new google.maps.Map(document.getElementById("map"), {
-            center: losAngeles,
-            zoom: 17
+            center: coord,
+            zoom: 12
         }); // Create the places service.
 
         var service = new google.maps.places.PlacesService(exports.map);
@@ -31,7 +44,7 @@
 
         service.nearbySearch(
             {
-                location: losAngeles,
+                location: coord,
                 radius: 500,
                 // ********************************************  from JB:  THIS IS WHERE WE ENTER THE TYPE ****************************************
 
@@ -79,5 +92,5 @@
     }
 
     exports.createMarkers = createMarkers;
-    exports.initMap = initMap;
-})((this.window = this.window || {}));
+    exports.initMap = initMap; 
+}) ((this.window = this.window || {}));

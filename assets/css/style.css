@@ -103,6 +103,13 @@ font-size: 22px;
    
     
 }
+
+/* removed padded from default col:12 - JB */
+
+.mapContainer {
+    padding: 0;
+}
+
 #aboutlink h2 {
     font-size: 2em;
     line-height:1.625;
