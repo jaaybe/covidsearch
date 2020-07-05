@@ -1,6 +1,6 @@
 /* added this global call for the font - and SANS-serif (not serif) as an alt */
 * {
-    font-family: "Ubuntu", sans-serif;
+    font-family: "Montserrat", Arial, Helvetica, sans-serif;
 }
 
 :root {
@@ -25,7 +25,6 @@ nav {
 
 #search  {
     font-size: 27px;
-    font-family: 'Ubuntu', serif;
     color: #086972;
     font-weight: bold;
     margin-left: 4rem;
@@ -33,7 +32,6 @@ nav {
 }
 #about {
     font-size: 27px;
-    font-family: 'Ubuntu', serif;
     color: #086972;
     font-weight: bold;
     margin-left: 7rem;
@@ -52,7 +50,6 @@ nav {
 }
 label {
 font-size: 22px;
-font-family: 'Ubuntu', serif;
 }
 
 /* removed padded from default col:12 - JB */
@@ -63,7 +60,6 @@ font-family: 'Ubuntu', serif;
 
 #aboutlink h2 {
     font-size: 27px;
-    font-family: 'Ubuntu', serif;
     color: #086972;
     font-weight: bold;
     margin-left: 2rem;
@@ -74,7 +70,6 @@ font-family: 'Ubuntu', serif;
 }
 #copyright h2 {
     font-size: 27px;
-    font-family: 'Ubuntu', serif;
     color: #086972;
     font-weight: bold;
     margin-left: 2rem;
