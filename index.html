@@ -17,24 +17,28 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu" />
   <!--link to CSS-->
   <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
-  <title>CoVie SEARCH</title>
+  <link rel="stylesheet" type="text/css" href="assets/css/map.css" />
+  <link rel=icon href="assets/Images/covie-heart.png" sizes="32x32"/>
+  <title>CoVie SEARCH </title>
 </head>
 
 <body>
   <!--Logo-->
   <header>
-    <h1 id="logo">
-      Co<span style="color: #f54291;">Vi</span>e SEARCH</a></h1>
+    <div>
+      <img src="assets/Images/covie-logo.png" class="float-left" id="logo" alt="Responsive image">
     <br />
+    </div>
   </header>
 
   <!-- SEARCH INPUT -->
 
   <section style="width: 100%; background-color: #1b6ca8;">
-    <br />
-
+<br />
+<br />
+<br />
     <div id="snippet" class="text-white">
-      <p>COVID-19 by the numbers for your State and City </p>
+      <p>Search COVID-19 data by County </p>
     </div>
     <div class="row">
       <div class="col-xs-5">
@@ -47,7 +51,7 @@
               <option value=""></option>
             </select>
             <br />
-            <label class="text-white"> Select City: </label>&nbsp;<select id="cities">
+            <label class="text-white"> Select County: </label>&nbsp;<select id="cities">
               <option value=""></option>
             </select>
             <br />

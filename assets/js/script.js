@@ -32,7 +32,7 @@ var makeDropDownLists = () => {
 
 // prepare drop-down list for states
 var makeStatesDropDownList = (data) => {
-    statesEl.innerHTML = '<option selected="selected" value="all">All states</option>';
+    statesEl.innerHTML = '<option selected="selected" value="all">All States</option>';
     // append each state into the drop-down selection list
     data.forEach(item => {
         getCities(item.region.province, item.region.cities);
@@ -58,7 +58,7 @@ var makeCitiesDropDownList = (state) => {
     }
 
     // append each city into the drop-down selection list
-    citiesEl.innerHTML = '<option selected="selected" value="all">All cities</option>';
+    citiesEl.innerHTML = '<option selected="selected" value="all">All Counties</option>';
     citiesToDisplay.forEach(city => {
         var optionEl = document.createElement('option');
         optionEl.value = city;
@@ -155,9 +155,9 @@ var displayCovidStats = (dataObj) => {
     // display date
     var dateEl = document.createElement('li');
     dateEl.id="lastUpdate";
-    document.getElementById("lastUpdate").innerHTML= `Date Update: ${dataObj.region.cities[0].date}`;
-   // dateEl.textContent = `Date Update: ${dataObj.region.cities[0].date}`;
-   // covidStatsEl.appendChild(dateEl);
+    document.getElementById("lastUpdate").innerHTML= `Date Updated: ${dataObj.region.cities[0].date}`;
+    //dateEl.textContent = `Date Update: ${dataObj.region.cities[0].date}`;
+    //covidStatsEl.appendChild(dateEl);
     // display confirmed cases and diff cases
    // var confirmedCasesEl = document.createElement('li');
     dateEl.id="confirmedCases";
@@ -168,11 +168,11 @@ var displayCovidStats = (dataObj) => {
        // confirmedCasesEl.textContent = `Confirmed cases: ${dataObj.region.cities[0].confirmed} (+${dataObj.region.cities[0].confirmed_diff} cases compared to the previous day)`;
     }
     else if (parseInt(dataObj.region.cities[0].confirmed_diff) === 0) {
-        document.getElementById("casesDiff").innerHTML= `Cases Difference: (no new cases compared to the previous day)`;
+        document.getElementById("casesDiff").innerHTML= `Cases Difference: 0`;
      //   confirmedCasesEl.textContent = `Confirmed cases: ${dataObj.region.cities[0].confirmed} (no new cases compared to the previous day)`;
     }
     else {
-        document.getElementById("casesDiff").innerHTML= `Cases Difference: ${dataObj.region.cities[0].confirmed_diff} cases compared to the previous day)`;
+        document.getElementById("casesDiff").innerHTML= `Cases Difference: ${dataObj.region.cities[0].confirmed_diff} compared to previous day)`;
 
      //   confirmedCasesEl.textContent = `Confirmed cases: ${dataObj.region.cities[0].confirmed} (${dataObj.region.cities[0].confirmed_diff} cases compared to the previous day)`;
     }
@@ -186,11 +186,11 @@ var displayCovidStats = (dataObj) => {
       //  deathsEl.textContent = `Deaths: ${dataObj.region.cities[0].deaths} (+${dataObj.region.cities[0].deaths_diff} deaths compared to the previous day)`;
     }
     else if (parseInt(dataObj.region.cities[0].deaths_diff) === 0) {
-        document.getElementById("deathsDiff").innerHTML= `Deaths Difference: (no new deaths compared to the previous day)`;
+        document.getElementById("deathsDiff").innerHTML= `Deaths Difference: 0`;
       //  deathsEl.textContent = `Deaths: ${dataObj.region.cities[0].deaths} (no new deaths compared to the previous day)`;
     }
     else {
-        document.getElementById("deathsDiff").innerHTML= `Deaths Difference: ${dataObj.region.cities[0].deaths_diff} cases compared to the previous day)`;
+        document.getElementById("deathsDiff").innerHTML= `Deaths Difference: ${dataObj.region.cities[0].deaths_diff} compared to previous day)`;
        // deathsEl.textContent = `Deaths: ${dataObj.region.cities[0].deaths} (${dataObj.region.cities[0].deaths_diff} deaths compared to the previous day)`;
     }
    // covidStatsEl.appendChild(deathsEl);
