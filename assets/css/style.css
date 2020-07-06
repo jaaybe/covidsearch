@@ -9,6 +9,22 @@ body {
 header {
     background-color: #0f3057;
 }
+
+/* BEGINNING OF SECTION ADDED BY SANDRINE */
+.list-group-item:hover {
+    cursor: pointer;
+}
+
+#tableResults h6 {
+    color: #ddf3f5; /* or whatever color the group picks */
+}
+
+.table td,
+.table th {
+    text-align: right;
+}
+/* END OF SECTION ADDED BY SANDRINE */
+
 #logo {
    max-width: 250px;
     max-height: 250px;
