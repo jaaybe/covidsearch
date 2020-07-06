@@ -24,19 +24,16 @@
   <!--Logo-->
   <header>
     <div>
-      <img src="assets/Images/covie-logo.png" class="float-left" id="logo" alt="Responsive image">
-    <br />
-    </div>
+      <img src="assets/Images/covie-logo.png" class="center" id="logo" alt="Responsive image">
+      </div>
   </header>
 
   <!-- SEARCH INPUT -->
 
-  <section style="width: 100%; background-color: #ddf3f5;">
-<br />
-<br />
-<br />
-    <div id="snippet" class="text-black">
-      <p>Search COVID-19 data by County </p>
+  <section style="width: 100%; background-color: #0f3057;">
+
+    <div id="snippet" class="text-white">
+      <p>Your county’s data at your fingertips</p>
     </div>
     <div class="row">
       <div class="col-xs-5">
@@ -44,12 +41,12 @@
           <br />
 
           <div class="card-body">
-            <label class="text-black"> Select State: </label>
+            <label class="text-white"> Select State: </label>
             <select id="states">
               <option value=""></option>
             </select>
             <br />
-            <label class="text-black"> Select County: </label>&nbsp;<select id="cities">
+            <label class="text-white"> Select County: </label>&nbsp;<select id="cities">
               <option value=""></option>
             </select>
             <br />
@@ -65,28 +62,28 @@
           <br />
 
           <div class="card-body" id="currentData">
-            <label class="text-black" id="lastUpdate"></label>
+            <label class="text-white" id="lastUpdate"></label>
             <br />
-            <label class="text-black" id="casesData"></label>
+            <label class="text-white" id="casesData"></label>
             <br />
-            <label class="text-black" id="casesDiff"></label>
+            <label class="text-white" id="casesDiff"></label>
             <br />
-            <label class="text-black" id="deathsData"></label>
+            <label class="text-white" id="deathsData"></label>
             <br />
-            <label class="text-black" id="deathsDiff"></label>
+            <label class="text-white" id="deathsDiff"></label>
             <br />
-            <label class="text-black" id="fatalityRate"></label>
+            <label class="text-white" id="fatalityRate"></label>
  </div>
          
   </section>
-  <section style="background-color: #ddf3f5;">
+  <section style="background-color: #00587a;">
     <br />
     <br />
-    <div class="row" id="historysave">
+    <div class="row">
       <div class="col-4">
         <div class="card" id="historyCard">
-          <div class="card-header"> Search History</div>
-          <div class="card-body">
+          <div class="card-header" id="historysave"> Search History</div>
+          <div class="card-body" id="historyspace">
             <div class="col-md-12">
               <!--place holder for history-->
               <div id="historyData"></div>
@@ -114,16 +111,13 @@
   </section>
   </div>
   <!--About-->
-  <section style="background-color: #eb4f1e; " id="aboutlink">
+  <section style="background-color: #008891; " id="aboutlink">
     <br />
-    <h2>About this page</h2>
+    <h2>About </h2>
     <p>
-      You might want the model name or serial number of your Mac when checking
-      warranty coverage, searching for specifications or other information about
-      your model, creating a home inventory, and more. Identifying your Mac
-      model is also important when selling or giving away your Mac or learning
-      whether it's compatible with the latest operating system or other software
-      or hardware.
+      COVIE SEARCH gives you a quick way to check the latest COVID-19 Virus Statistics in your County. 
+      Our data comes from an API built by Axisbits, which gathers the latest COVID statistics details from the Johns Hopkins Center for Systems Science and Engineering (CSSE) database. 
+      The data is refreshed daily. The visual county map representation is based off the latitude and longitude provided by the Johns Hopkins CSSE database when run through GoogleMaps.
     </p>
     <br />
     <br />
