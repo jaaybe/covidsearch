@@ -7,7 +7,7 @@ body {
 }
 
 header {
-    background-color: #1b6ca8;
+    background-color: #0f3057;
 }
 #logo {
    max-width: 250px;
@@ -25,7 +25,7 @@ header {
 }
 
 #stateCard {
-    background-color: #1b6ca8;
+    background-color: #0f3057;
     border:none;
     font-size: 1.25em;
     line-height:1.625;
@@ -48,7 +48,7 @@ header {
 #historyCard {
     
     border:none;
-    color: #eb4f1e;
+    color: #008891;
     font-size: 1.25em;
     line-height:1.625;
     font-weight: 400;
@@ -65,29 +65,29 @@ header {
     white-space: nowrap;
 }
 #subBtn:hover  {
-    background-color: #ddf3f5;
+    background-color: #e7e7de;
     color: black;
     border-color: black;
 }
 #clearBtn:hover  {
-    background-color: #ddf3f5;
+    background-color: #e7e7de;
     color: black;
     border-color: black;
 }
 #historyBtn:hover {
-    background-color: #f2aaaa;
+    background-color: #e7e7de;
     color: black;
     border-color: black;
 }
 
 #historyBtn {
     background-color: transparent;
-    border-color: #eb4f1e;
+    border-color: #0f3057;
     cursor: pointer;
     text-align: center;
     max-width: 100%;
     white-space: nowrap; 
-    color: #eb4f1e;
+    color: #0f3057;
 } 
 label {
 font-size: 22px;
@@ -130,7 +130,7 @@ footer h2 {
    text-align: center;
    width: 100%;
    font-size: 18px;
-   background-color: #eb4f1e;  
+   background-color: #008891;  
 }
 @media screen and (max-width: 980px) {
 #logo {
