@@ -158,6 +158,7 @@ var searchClickHandler = (event) => {
         localStorage.setItem('searchHistoryArr', JSON.stringify(searchHistoryArr)); // save updated array
         searchHistory();   // display updated search history
     }
+    clearFilters();
 };
 
 // function to fetch covid data for selected county/state pair
@@ -176,7 +177,7 @@ var fetchCovidData = (inputCounty, inputState) => {
 };
 
 // function to reset drop down lists
-var clearFilters = (event) => {
+var clearFilters = () => {
     pickedState = false;
     pickedCounty = false;
     statesEl.innerHTML = '';
@@ -203,7 +204,6 @@ var clearSearchHistory = () => {
 statesEl.addEventListener('change', stateSelectionHandler);
 countiesEl.addEventListener('change', countySelectionHandler);
 filterButton.addEventListener('click', searchClickHandler);
-clearButton.addEventListener('click', clearFilters);
 searchHistoryEl.addEventListener('click', searchHistoryClickHandler);
 delHistory.addEventListener('click', clearSearchHistory);
 
