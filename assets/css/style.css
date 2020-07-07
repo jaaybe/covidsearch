@@ -1,66 +1,66 @@
 * {
-    font-family: "Montserrat", Arial, Helvetica, sans-serif;
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
 }
 body {
-    background-color: #0f3057;
-    color: black;
+  background-color: #0f3057;
+  color: black;
 }
 
-header {
-    background-color: #0f3057;
-}
-
+/* header {
+  background-color: #0f3057;
+} */
 
 .list-group-item:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
-
+/* #tableResults div{
+  background-color: #e7e7de; */
+}
 #tableResults h6 {
-    color: #ddf3f5; 
-
+  color: black;
 }
-#resultrow {
-    background-color: #0f3057;
-}
+/* #resultrow {
+  background-color: #0f3057;
+} */
 .table td,
 .table th {
-    text-align: right;
+  text-align: right;
 }
 #cdcInfo {
-    color: #ffffff;
+  color: #ffffff;
 }
 
 #statetitle,
 #countyheader {
-    color: #ffffff;
+  color: #ffffff;
 }
+
 
 #logo {
-    display: block;
+  display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
-    max-width: 350px; 
-    max-height: 350px;
-
-    
-} 
+  width: 100%;
+  max-width: 400px;
+  max-height: 400px;
+  padding-top: 2%;
+}
 #snippet {
-    text-align: center;
-    font-size: 1.85em;
-    line-height:1.625;
-    margin-left: 4rem;
-    font-weight: 400;
-    margin-top: 3%;
+  text-align: center;
+  font-size: 1.85em;
+  line-height: 1.625;
+  margin-left: 4rem;
+  font-weight: 400;
+  margin-top: 3%;
 }
 
-#stateCard {
-    background-color: #0f3057;
-    border:none;
-    font-size: 1.25em;
-    line-height:1.625;
-    font-weight: 400;
-    margin-top: 3%;
+/* #stateCard {
+  background-color: #0f3057;
+  border: none;
+  font-size: 1.25em;
+  line-height: 1.625;
+  font-weight: 400;
+  margin-top: 3%;
 }
 
 #fatalityRate,
@@ -69,157 +69,134 @@ header {
 #lastUpdate,
 #deathsDiff,
 #casesDiff,
-#casesData
- {
-    color: #ffffff;
-    font-size: 1.25em;
-    line-height:1.625;
-    font-weight: 400;
+#casesData {
+  color: #ffffff;
+  font-size: 1.25em;
+  line-height: 1.625;
+  font-weight: 400;
+} */
 
-}
-
-#historyCard {
-    
-    border:none;
-    color: #00587a;
-    font-size: 1.25em;
-    line-height:1.625;
-    font-weight: 400;
-
-}
+/* #historyCard {
+  border: none;
+  color: #00587a;
+  font-size: 1.25em;
+  line-height: 1.625;
+  font-weight: 400;
+} */
 #subBtn,
 #clearBtn,
 #delHistory
  {
-    background-color: transparent;
-    cursor: pointer;
-    color: #ffffff;
-    border-color: white;
-    text-align: center;
-    max-width: 100%;
-    white-space: nowrap;
+  background-color: transparent;
+  cursor: pointer;
+  color: #ffffff;
+  border-color: white;
+  text-align: center;
+  max-width: 100%;
+  white-space: nowrap;
 }
 
 #subBtn:hover,
 #clearBtn:hover,
-#delHistory:hover  {
-    background-color: #e7e7de;
-    color: black;
-    border-color: black;
-
+#delHistory:hover {
+  background-color: #e7e7de;
+  color: black;
+  border-color: black;
 }
 
-
-#delHistory {
-    background-color: transparent;
-    align-content: left;
-    border-color: #ffffff;
-    cursor: pointer;
-    text-align: center;
-    max-width: 100%;
-    color: #ffffff;
-} 
 label {
-font-size: 22px;
-
+  font-size: 22px;
 }
-
 
 /* removed padded from default col:12 - JB */
 
 .mapContainer {
-    padding: 0;
+  padding: 0;
 }
 
+
+
 #aboutlink h2 {
-    font-size: 2em;
-    line-height:1.625;
-    margin-left: 1rem;
-    font-weight: 400;
-    color: #ffffff;
+  font-size: 2em;
+  line-height: 1.625;
+  font-weight: 400;
+  color: #ffffff;
 }
 #aboutlink p {
-    font-size: 1.25em;
-    margin-left: 1rem;
-    color: #ffffff;
-    font-weight: 300;
-    line-height:1.625;
+  font-size: 1.25em;
+  color: #ffffff;
+  font-weight: 300;
+  line-height: 1.625;
 }
 
 footer h2 {
-   text-align: center;
-   width: 100%;
-   font-size: 18px;
+  text-align: center;
+  width: 100%;
+  font-size: 18px;
 }
 @media screen and (max-width: 980px) {
-#logo {
+  #logo {
     font-size: 50px;
     position: relative;
-}
-
+  }
 }
 
 @media screen and (max-width: 768px) {
-    #logo {
+  #logo {
     font-size: 40px;
     position: relative;
-    }
-    
+  }
 }
 
 @media screen and (max-width: 575px) {
+  #logo {
+    max-width: 150px;
+    max-height: 150px;
+  }
+  #snippet {
+    text-align: left;
+    font-size: 1.25em;
+    line-height: 1;
+    font-weight: 300;
+  }
 
-    #logo {
-        max-width: 150px;
-        max-height: 150px;
-        }
-#snippet {
-            text-align: left;
-            font-size: 1.25em;
-            line-height:1;
-            font-weight: 300;
-        }
+  #stateCard {
+    font-size: 0.75em;
+    font-weight: 200;
+  }
 
-
- #stateCard {
-            font-size: .75em;   
-            font-weight: 200;
-        }
-        
-      #historyCard {
-             font-size: .75em;
-     font-weight: 200;
-        
-        }
-label {
+  #historyCard {
+    font-size: 0.75em;
+    font-weight: 200;
+  }
+  label {
     font-size: 1.75em;
-}
-       
-        #clearBtn,
-        #subBtn
-         {
-            font-size: smaller;
-            text-align: left;
-            max-width: 70%;
-            white-space: wrap; 
-         }
-       
-      #historyBtn {
-                font-size: .70em;
-                align-self: left;
-                text-align: left;
-            }
- #aboutlink {
-    font-size: .75em;
-}
-#aboutlink h2 {
+  }
+
+  #clearBtn,
+  #subBtn {
+    font-size: smaller;
+    text-align: left;
+    max-width: 70%;
+    white-space: wrap;
+  }
+
+  #historyBtn {
+    font-size: 0.7em;
+    align-self: left;
+    text-align: left;
+  }
+  #aboutlink {
+    font-size: 0.75em;
+  }
+  #aboutlink h2 {
     font-size: 1.55em;
-}
+  }
 }
 
 @media screen and (max-width: 768px) {
-    #snippet {
-        text-align: left;
-        margin-left: .25em;
-    }
+  #snippet {
+    text-align: left;
+    margin-left: 0.25em;
+  }
 }

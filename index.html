@@ -30,7 +30,7 @@
 
   <!-- SEARCH INPUT -->
 
-  <section style="width: 100%; background-color: #0f3057;">
+  <section style="width: 100%;">
 
     <div id="snippet" class="text-white">
       <p>Your county’s COVID-19 data at your fingertips</p>
@@ -66,7 +66,7 @@
               <ul class="list-group"></ul>
             </div>
             <div>
-              <button id="delHistory" type="submit" class="btn bg-default mb-5 text-secondary"><i
+              <button id="delHistory" type="submit" class="btn bg-default mb-5 text-black"><i
                   class="fa fa-trash mr-2 text-info"></i>Delete Search History</button>
             </div>
           </div>
@@ -78,18 +78,20 @@
         <!-- Covid general info column -->
         <div class="row mt-3 mb-4 ml-auto d-block" id="cdcInfo">
           <h5></h5>
-          <p>It is important that you listen to public health officials who may recommend community actions to reduce potential exposure to COVID-19, 
+          <p>It is important that you listen to public health officials who may recommend community actions to reduce
+            potential exposure to COVID-19,
             especially if COVID-19 is spreading in your community.</p>
+
         </div>
         <!-- Covid results row -->
         <div class="row">
           <!-- Table -->
-          <div class="col-12 col-md-6">
+          <div class="col-12 col-md-6" >
             <div id="tableResults" class="card bg-transparent border-0"></div>
           </div>
           <!-- Plot -->
-          <div class="col-12 col-md-6 m-0 p-0">
-            <div class="bg-transparent m-0 p-0 border-0">
+          <div class="col-12 col-md-6 m-0 p-auto">
+            <div class="bg-transparent m-0 p-auto border-0">
               <div id="plot" class="bg-transparent m-0 p-0"></div>
             </div>
           </div>
@@ -98,35 +100,34 @@
     </div>
   </main>
 
-    <!-- GOOGLE MAP section -->
-    <div class="container-fluid px-0">
-      <div class="row">
-        <div class="col-md-12">
-        <div id="map">
+
+  <!-- GOOGLE MAP section -->
+  <div class="container pt-3">
+     <div id="map">
           <iframe id="iframeMap" width="100%" height="400px" src="maps.html" frameborder="1"
             style="list-style-type:none; border:0; float:center;" allowfullscreen></iframe>
         </div>
-        </div>
-        </div>
-      
-
- 
+       </div>
+       </div>
 
 
   <!--About-->
-  <section style="background-color: #00587a; " id="aboutlink">
+<section id="aboutlink">
+    <div class="container pt-3">
     <br />
     <h2>About </h2>
     <p>
       COVIE SEARCH gives you a quick way to check the latest COVID-19 Virus Statistics in your County.
       Our data comes from an API built by Axisbits, which gathers the latest COVID statistics details from the Johns
       Hopkins Center for Systems Science and Engineering (CSSE) database.
-      The data is refreshed daily. The visual county map representation is based off the latitude and longitude provided
+      The data is refreshed daily. The visual county map representation is based off the latitude and longitude
+      provided
       by the Johns Hopkins CSSE database when run through GoogleMaps.
     </p>
     <br />
     <br />
     <br />
+    </div>
   </section>
 
   <!--Footer-->
