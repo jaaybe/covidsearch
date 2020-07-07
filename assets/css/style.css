@@ -2,12 +2,12 @@
     font-family: "Montserrat", Arial, Helvetica, sans-serif;
 }
 body {
-    background-color: #ddf3f5;
+    background-color: #0f3057;
     color: black;
 }
 
 header {
-    background-color: #ddf3f5;
+    background-color: #0f3057;
 }
 
 
@@ -16,17 +16,23 @@ header {
 }
 
 #tableResults h6 {
-    color: #ddf3f5;
-}
+    color: #ddf3f5; 
 
+}
+#resultrow {
+    background-color: #0f3057;
+}
 .table td,
 .table th {
     text-align: right;
 }
+#cdcInfo {
+    color: #ffffff;
+}
 
 #statetitle,
 #countyheader {
-    color:  black;
+    color: #ffffff;
 }
 
 #logo {
@@ -36,7 +42,6 @@ header {
   width: 50%;
     max-width: 350px; 
     max-height: 350px;
-    padding-top: 2%;
 
     
 } 
@@ -50,7 +55,7 @@ header {
 }
 
 #stateCard {
-    background-color: #ddf3f5;
+    background-color: #0f3057;
     border:none;
     font-size: 1.25em;
     line-height:1.625;
@@ -66,7 +71,7 @@ header {
 #casesDiff,
 #casesData
  {
-    color: black;
+    color: #ffffff;
     font-size: 1.25em;
     line-height:1.625;
     font-weight: 400;
@@ -76,7 +81,7 @@ header {
 #historyCard {
     
     border:none;
-    color: #ddf3f5;
+    color: #00587a;
     font-size: 1.25em;
     line-height:1.625;
     font-weight: 400;
@@ -88,7 +93,7 @@ header {
  {
     background-color: transparent;
     cursor: pointer;
-    color: black;
+    color: #ffffff;
     border-color: white;
     text-align: center;
     max-width: 100%;
@@ -112,7 +117,7 @@ header {
     cursor: pointer;
     text-align: center;
     max-width: 100%;
-    color: black;
+    color: #ffffff;
 } 
 label {
 font-size: 22px;
@@ -131,12 +136,12 @@ font-size: 22px;
     line-height:1.625;
     margin-left: 1rem;
     font-weight: 400;
-    color: black;
+    color: #ffffff;
 }
 #aboutlink p {
     font-size: 1.25em;
     margin-left: 1rem;
-    color: black;
+    color: #ffffff;
     font-weight: 300;
     line-height:1.625;
 }
