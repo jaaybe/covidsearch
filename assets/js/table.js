@@ -26,10 +26,6 @@ var displayCovidTable = (dataObj) => {
     divEl.setAttribute('class', 'table-responsive mb-3');
     var tableEl = document.createElement('div');
     tableEl.setAttribute('class', 'table table-hover table-sm');
-    // caption
-    var captionEl = document.createElement('caption');
-    captionEl.textContent = 'Source: John Hopkins ...';
-    tableEl.appendChild(captionEl);
     // table head
     var tableHeadEl = document.createElement('thead');
     var tHeadTrEl = document.createElement('tr');
