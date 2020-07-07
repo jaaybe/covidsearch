@@ -10,8 +10,8 @@ var plotData = [];
 var statesEl = document.querySelector('#states');
 var countiesEl = document.querySelector('#counties');
 var searchHistoryEl = document.querySelector('#searchHistory');
-var filterButton = document.querySelector('#subBtn');
-var clearButton = document.querySelector('#clearBtn');
+var filterButtonEl = document.querySelector('#subBtn');
+var delHistoryEl = document.querySelector('#delHistory');
 var plotEl = document.querySelector('#plot');
 var iframeMapEl = document.querySelector('#iframeMap');
 
@@ -203,10 +203,11 @@ var clearSearchHistory = () => {
 // event listeners
 statesEl.addEventListener('change', stateSelectionHandler);
 countiesEl.addEventListener('change', countySelectionHandler);
-filterButton.addEventListener('click', searchClickHandler);
+filterButtonEl.addEventListener('click', searchClickHandler);
 searchHistoryEl.addEventListener('click', searchHistoryClickHandler);
-delHistory.addEventListener('click', clearSearchHistory);
+delHistoryEl.addEventListener('click', clearSearchHistory);
 
-// prepare drop down lists and display search history stored in local storage upon opening the app
+// fetch and display LA County covid data, prepare drop down lists and display search history stored in local storage upon opening the app
+fetchCovidData('Los Angeles', 'California');
 makeDropDownLists();
 searchHistory();
