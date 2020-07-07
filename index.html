@@ -16,7 +16,7 @@
   <!--link to CSS-->
   <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
   <link rel="stylesheet" type="text/css" href="assets/css/map.css" />
-  <link rel=icon href="assets/Images/covie-heart.png" sizes="32x32"/>
+  <link rel=icon href="assets/Images/covie-heart.png" sizes="32x32" />
   <title>CoVie SEARCH </title>
 </head>
 
@@ -25,7 +25,7 @@
   <header>
     <div>
       <img src="assets/Images/covie-logo.png" class="center" id="logo" alt="Responsive image">
-      </div>
+    </div>
   </header>
 
   <!-- SEARCH INPUT -->
@@ -33,91 +33,95 @@
   <section style="width: 100%; background-color: #0f3057;">
 
     <div id="snippet" class="text-white">
-      <p>Your county’s data at your fingertips</p>
+      <p>Your county’s COVID-19 data at your fingertips</p>
     </div>
-    <div class="row">
-      <div class="col-xs-5">
-        <div class="card" id="stateCard">
-          <br />
+  </section>
 
-          <div class="card-body">
-            <label class="text-white"> Select State: </label>
-            <select id="states">
-              <option value=""></option>
-            </select>
-            <br />
-            <label class="text-white"> Select County: </label>&nbsp;<select id="cities">
-              <option value=""></option>
-            </select>
-            <br />
-            <br />
-            <button type="button" id="subBtn" class="btn btn-primary">Search</button>
-            <button type="button" id="clearBtn" class="btn btn-primary">Clear Filters</button></div>
-        </div>
+  <main class="container pt-3">
+
+    <!-- COVID section -->
+    <div class="row">
+
+      <!-- Search column -->
+      <div class="col-12 col-md-3">
+        <aside class="filters mx-auto">
+          <div class="panel panel-default">
+            <!-- drop down lists -->
+            <div class="panel-body">
+              <form id="user-form">
+                <div class="form-group mb-3">
+                  <label for="states" id="statetitle">State</label>
+                  <select class="form-control" id="states"></select>
+                </div>
+                <div class="form-group mb-3">
+                  <label for="cities" id="countyheader">County</label>
+                  <select class="form-control" id="counties"></select>
+                </div>
+                <button type="button" id="subBtn" class="btn">Search</button>
+                <button type="button" id="clearBtn" class="btn btn-outline-secondary">Clear Selection</button>
+              </form>
+            </div>
+            <!-- search history -->
+            <div class="mt-4 mb-3" id="searchHistory">
+              <ul class="list-group"></ul>
+            </div>
+            <div>
+              <button id="delHistory" type="submit" class="btn bg-default mb-5 text-secondary"><i
+                  class="fa fa-trash mr-2 text-info"></i>Delete Search History</button>
+            </div>
+          </div>
+        </aside>
       </div>
 
-
-      <div class="col-xs-7">
-        <div class="card" id="stateCard">
-          <br />
-
-          <div class="card-body" id="currentData">
-            <label class="text-white" id="lastUpdate"></label>
-            <br />
-            <label class="text-white" id="casesData"></label>
-            <br />
-            <label class="text-white" id="casesDiff"></label>
-            <br />
-            <label class="text-white" id="deathsData"></label>
-            <br />
-            <label class="text-white" id="deathsDiff"></label>
-            <br />
-            <label class="text-white" id="fatalityRate"></label>
- </div>
-         
-  </section>
-  <section style="background-color: #00587a;">
-    <br />
-    <br />
-    <div class="row">
-      <div class="col-4">
-        <div class="card" id="historyCard">
-          <div class="card-header" id="historysave"> Search History</div>
-          <div class="card-body" id="historyspace">
-            <div class="col-md-12">
-              <!--place holder for history-->
-              <div id="historyData"></div>
-            </div>
-            <br />
-            <div class="col-md-12">
-              <button type="button" class="btn btn-primary" id="historyBtn">Clear</button>
+      <!-- Results column -->
+      <div class="col-12 col-md-9">
+        <!-- Covid general info column -->
+        <div class="row mt-3 mb-4 ml-auto d-block" id="cdcInfo">
+          <h5>Here we could put some key updates from the CDC</h5>
+          <p>Blablabla - important info scraped from the CDC website.</p>
+        </div>
+        <!-- Covid results row -->
+        <div class="row mx-auto">
+          <!-- Table -->
+          <div class="col-12 col-md-6">
+            <div id="tableResults" class="card bg-transparent border-0"></div>
+          </div>
+          <!-- Plot -->
+          <div class="col-12 col-md-6 m-0 p-0">
+            <div class="bg-transparent m-0 p-0 border-0">
+              <div id="plot" class="bg-transparent m-0 p-0"></div>
             </div>
           </div>
         </div>
       </div>
-      <!---map-->
-  </section>
-  <section>
-    <div class="row">
-      <div class="col-md-12" id="iframeMap">
+    </div>
+  </main>
+
+    <!-- GOOGLE MAP section -->
+    <div class="container-fluid px-0">
+      <div class="row">
+        <div class="col-md-12">
         <div id="map">
-          <iframe width="100%" height="400px" src="maps.html" frameborder="1"
+          <iframe id="iframeMap" width="100%" height="400px" src="maps.html" frameborder="1"
             style="list-style-type:none; border:0; float:center;" allowfullscreen></iframe>
         </div>
-      </div>
-    </div>
-    </div>
-    </div>
-  </section>
-  </div>
+        </div>
+        </div>
+      
+
+ 
+
+
   <!--About-->
   <section style="background-color: #008891; " id="aboutlink">
     <br />
     <h2>About </h2>
     <p>
-      COVIE SEARCH gives you a quick way to check the latest COVID-19 Virus Statistics in your County. 
-      Our data comes from an API built by Axisbits, which gathers the latest COVID statistics details from the Johns Hopkins Center for Systems Science and Engineering (CSSE) database. 
-      The data is refreshed daily. The visual county map representation is based off the latitude and longitude provided by the Johns Hopkins CSSE database when run through GoogleMaps.
+      COVIE SEARCH gives you a quick way to check the latest COVID-19 Virus Statistics in your County.
+      Our data comes from an API built by Axisbits, which gathers the latest COVID statistics details from the Johns
+      Hopkins Center for Systems Science and Engineering (CSSE) database.
+      The data is refreshed daily. The visual county map representation is based off the latitude and longitude provided
+      by the Johns Hopkins CSSE database when run through GoogleMaps.
     </p>
     <br />
     <br />
@@ -129,12 +133,24 @@
     <h2 class="text-white">&copy; 2020 Hot Stuff</h2>
   </footer>
 
-  <!--Jquery-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <!--Monents-->
+  <!-- JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+  <!-- more web APIs, then custom js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <script src="assets/js/script.js"></script>
+  <script src="assets/js/table.js"></script>
+  <script src="assets/js/plot.js"></script>
   <script src="assets/js/maps.js"></script>
 </body>
 

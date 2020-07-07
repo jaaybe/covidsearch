@@ -9,6 +9,27 @@ body {
 header {
     background-color: #0f3057;
 }
+
+
+.list-group-item:hover {
+    cursor: pointer;
+}
+
+#tableResults h6 {
+    color: #ddf3f5;
+}
+
+}
+.table td,
+.table th {
+    text-align: right;
+}
+
+#statetitle,
+#countyheader {
+    color: #ffffff;
+}
+
 #logo {
     display: block;
   margin-left: auto;
@@ -62,7 +83,8 @@ header {
 
 }
 #subBtn,
-#clearBtn
+#clearBtn,
+#delHistory
  {
     background-color: transparent;
     cursor: pointer;
@@ -72,37 +94,24 @@ header {
     max-width: 100%;
     white-space: nowrap;
 }
-#historysave,
-#card-header,
-#historyData,
-#historyspace {
-background-color: #00587a; 
-color: #ffffff;
-}
-#subBtn:hover  {
+
+#subBtn:hover,
+#clearBtn:hover,
+#delHistory:hover  {
     background-color: #e7e7de;
     color: black;
     border-color: black;
-}
-#clearBtn:hover  {
-    background-color: #e7e7de;
-    color: black;
-    border-color: black;
-}
-#historyBtn:hover {
-    background-color: #e7e7de;
-    color: black;
-    border-color: black;
+
 }
 
-#historyBtn {
+
+#delHistory {
     background-color: transparent;
     align-content: left;
     border-color: #ffffff;
     cursor: pointer;
     text-align: center;
     max-width: 100%;
- 
     color: #ffffff;
 } 
 label {
@@ -110,16 +119,6 @@ font-size: 22px;
 
 }
 
-#currentData {
-    color: white;
-    letter-spacing: -0.075rem;
-    width: 100%;
-    line-height: 1.25;
-    font-weight: 400;
-    font-size: 1.15em; 
-   
-    
-}
 
 /* removed padded from default col:12 - JB */
 
