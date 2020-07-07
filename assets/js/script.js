@@ -23,8 +23,12 @@ var searchHistoryArr = JSON.parse(localStorage.getItem('searchHistoryArr')) || [
 
 // function to populate the search history and save to local storage
 var searchHistory = () => {
+    console.log('before:', searchHistoryArr);
     // clear previous search history
     searchHistoryEl.innerHTML = '';
+    // sort searchHistoryArr alphabetically by county
+    searchHistoryArr.sort((a, b) => (a.county > b.county) ? 1 : -1);
+    console.log('after sorting:', searchHistoryArr);
     // loop through searchHistoryArr to display user search history
     searchHistoryArr.forEach(obj => {
         var countyStateEl = document.createElement('li');
