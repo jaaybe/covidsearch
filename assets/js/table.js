@@ -1,5 +1,3 @@
-var tableResultsEl = document.querySelector('#tableResults');
-
 var displayCovidTable = (dataObj) => {
     // extract lat and lon for maps purposes
     console.log(dataObj);
@@ -21,14 +19,10 @@ var displayCovidTable = (dataObj) => {
        }
     })
 
-    
-   
-
     /********** TABLE BUILDING **********/
     // clear previous content
-    tableResultsEl.innerHTML = '';
     var tableResultsDivEl = document.createElement('div');
-    tableResultsDivEl.setAttribute('class', 'card-body mt-0 bg-info');
+    tableResultsDivEl.setAttribute('class', 'card-body mt-0');
     // set title
     var locationSearchedEl = document.createElement('h5');
     locationSearchedEl.setAttribute('class', 'card-title mt-4 mb-4');
@@ -40,10 +34,10 @@ var displayCovidTable = (dataObj) => {
     lastUpdateEl.textContent = `Last update: ${dataObj.region.cities[0].date}`;
     tableResultsDivEl.appendChild(lastUpdateEl);
     // set table
-    var divEl = document.createElement('div');
-    divEl.setAttribute('class', 'table-responsive mb-3');
-    var tableEl = document.createElement('div');
-    tableEl.setAttribute('class', 'table table-hover table-sm');
+    //var divEl = document.createElement('table');
+    //divEl.setAttribute('class', 'table-responsive mb-5');
+    var tableEl = document.createElement('table');
+    tableEl.setAttribute('class', 'table table-sm');
     // table head
     var tableHeadEl = document.createElement('thead');
     var tHeadTrEl = document.createElement('tr');
@@ -52,11 +46,13 @@ var displayCovidTable = (dataObj) => {
     tHeadTrEl.appendChild(tHeadTh1El);
     var tHeadTh2El = document.createElement('th');
     tHeadTh2El.setAttribute('scope', 'col');
-    tHeadTh2El.textContent = dataObj.region.cities[0].name;
+    //tHeadTh2El.textContent = dataObj.region.cities[0].name;
+    tHeadTh2El.textContent = 'COUNTY';
     tHeadTrEl.appendChild(tHeadTh2El);
     var tHeadTh3El = document.createElement('th');
     tHeadTh3El.setAttribute('scope', 'col');
-    tHeadTh3El.textContent = dataObj.region.province;
+    //tHeadTh3El.textContent = dataObj.region.province;
+    tHeadTh3El.textContent = 'STATE';
     tHeadTrEl.appendChild(tHeadTh3El);
     tableHeadEl.appendChild(tHeadTrEl);
     tableEl.appendChild(tableHeadEl);
@@ -72,10 +68,10 @@ var displayCovidTable = (dataObj) => {
     tBodyTr1ThEl.textContent = '# cases';
     tBodyTr1El.appendChild(tBodyTr1ThEl);
     var tBodyTr1CountyEl = document.createElement('td');
-    tBodyTr1CountyEl.textContent = dataObj.region.cities[0].confirmed;
+    tBodyTr1CountyEl.textContent = parseInt(dataObj.region.cities[0].confirmed).toLocaleString('en');
     tBodyTr1El.appendChild(tBodyTr1CountyEl);
     var tBodyTr1StateEl = document.createElement('td');
-    tBodyTr1StateEl.textContent = dataObj.confirmed;
+    tBodyTr1StateEl.textContent = parseInt(dataObj.confirmed).toLocaleString('en');
     tBodyTr1El.appendChild(tBodyTr1StateEl);
     tableBodyEl.appendChild(tBodyTr1El);
     // row 2
@@ -88,10 +84,10 @@ var displayCovidTable = (dataObj) => {
     tBodyTr2ThEl.textContent = 'Δ cases';
     tBodyTr2El.appendChild(tBodyTr2ThEl);    
     var tBodyTr2CountyEl = document.createElement('td');
-    tBodyTr2CountyEl.textContent = dataObj.region.cities[0].confirmed_diff;
+    tBodyTr2CountyEl.textContent = parseInt(dataObj.region.cities[0].confirmed_diff).toLocaleString('en');
     tBodyTr2El.appendChild(tBodyTr2CountyEl);
     var tBodyTr2StateEl = document.createElement('td');
-    tBodyTr2StateEl.textContent = dataObj.confirmed_diff;
+    tBodyTr2StateEl.textContent = parseInt(dataObj.confirmed_diff).toLocaleString('en');
     tBodyTr2El.appendChild(tBodyTr2StateEl);
     tableBodyEl.appendChild(tBodyTr2El);
     // row 3
@@ -104,10 +100,10 @@ var displayCovidTable = (dataObj) => {
     tBodyTr3ThEl.textContent = '# deaths';
     tBodyTr3El.appendChild(tBodyTr3ThEl);
     var tBodyTr3CountyEl = document.createElement('td');
-    tBodyTr3CountyEl.textContent = dataObj.region.cities[0].deaths;
+    tBodyTr3CountyEl.textContent = parseInt(dataObj.region.cities[0].deaths).toLocaleString('en');
     tBodyTr3El.appendChild(tBodyTr3CountyEl);
     var tBodyTr3StateEl = document.createElement('td');
-    tBodyTr3StateEl.textContent = dataObj.deaths;
+    tBodyTr3StateEl.textContent = parseInt(dataObj.deaths).toLocaleString('en');
     tBodyTr3El.appendChild(tBodyTr3StateEl);
     tableBodyEl.appendChild(tBodyTr3El);
     // row 4
@@ -120,10 +116,10 @@ var displayCovidTable = (dataObj) => {
     tBodyTr4ThEl.textContent = 'Δ deaths';
     tBodyTr4El.appendChild(tBodyTr4ThEl);    
     var tBodyTr4CountyEl = document.createElement('td');
-    tBodyTr4CountyEl.textContent = dataObj.region.cities[0].deaths_diff;
+    tBodyTr4CountyEl.textContent = parseInt(dataObj.region.cities[0].deaths_diff).toLocaleString('en');
     tBodyTr4El.appendChild(tBodyTr4CountyEl);
     var tBodyTr4StateEl = document.createElement('td');
-    tBodyTr4StateEl.textContent = dataObj.deaths_diff;
+    tBodyTr4StateEl.textContent = parseInt(dataObj.deaths_diff).toLocaleString('en');
     tBodyTr4El.appendChild(tBodyTr4StateEl);
     tableBodyEl.appendChild(tBodyTr4El);
     // row 5
@@ -142,7 +138,8 @@ var displayCovidTable = (dataObj) => {
     tableBodyEl.appendChild(tBodyTr5El);    
     // append to table divs
     tableEl.appendChild(tableBodyEl);
-    divEl.appendChild(tableEl);
-    tableResultsDivEl.appendChild(divEl);
+    //divEl.appendChild(tableEl);
+    //tableResultsDivEl.appendChild(divEl);
+    tableResultsDivEl.appendChild(tableEl);
     tableResultsEl.appendChild(tableResultsDivEl);
 };

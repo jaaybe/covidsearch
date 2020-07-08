@@ -6,14 +6,17 @@ var inputLat = '';
 var inputLon = '';
 var plotData = [];
 
-// get reference to the table body and the buttons
+// get reference to html elements for dom manipulation
 var statesEl = document.querySelector('#states');
 var countiesEl = document.querySelector('#counties');
 var searchHistoryEl = document.querySelector('#searchHistory');
 var filterButtonEl = document.querySelector('#subBtn');
 var delHistoryEl = document.querySelector('#delHistory');
+var tableResultsEl = document.querySelector('#tableResults');
 var plotEl = document.querySelector('#plot');
 var iframeMapEl = document.querySelector('#iframeMap');
+var spinnerTableEl = document.querySelector('#spinnerTable');
+var spinnerPlotEl = document.querySelector('#spinnerPlot');
 
 // utility function to display list of unique values
 var uniqueValues = ((value, index, self) => self.indexOf(value) === index);
@@ -35,6 +38,15 @@ var uniqueHistory = (arr) => {
     });
     return newArr;
 };
+
+// utility functions to show and hide the spinners
+var showSpinner = (spinnerName) => {
+    spinnerName.className = "show";
+  }
+  
+var hideSpinner = (spinnerName) => {
+    spinnerName.className = spinnerName.className.replace("show", "");
+}
 
 // retrieve search history
 var searchHistoryArr = JSON.parse(localStorage.getItem('searchHistoryArr')) || [];
@@ -185,7 +197,12 @@ var searchClickHandler = (event) => {
 
 // function to fetch covid data for selected county/state pair
 var fetchCovidData = (inputCounty, inputState) => {
+    tableResultsEl.innerHTML = '';
+    plotEl.innerHTML = '';
+    // fetch data for the plot
     fetchPlotData(inputCounty, inputState);
+    // show spinner while data is being fetched for the table
+    showSpinner(spinnerTableEl);
     fetch(`https://covid-19-statistics.p.rapidapi.com/reports?iso=USA&region_province=${inputState}&city_name=${inputCounty}`, {
 	    "method": "GET",
 	    "headers": {

@@ -16,35 +16,29 @@
   <!--link to CSS-->
   <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
   <link rel="stylesheet" type="text/css" href="assets/css/map.css" />
+  <link rel="stylesheet" type="text/css" href="assets/css/spinners.css" />
   <link rel=icon href="assets/Images/covie-heart.png" sizes="32x32" />
   <title>CoVie SEARCH </title>
 </head>
 
 <body>
-  <!--Logo-->
+  <!-- Logo -->
   <header>
     <div>
       <img src="assets/Images/covie-logo.png" class="center" id="logo" alt="Responsive image">
     </div>
   </header>
 
-  <!-- SEARCH INPUT -->
-
+  <!-- Snippet -->
   <section style="width: 100%;">
-
     <div id="snippet">
       <p>Your county’s COVID-19 data at your fingertips</p>
     </div>
   </section>
 
+  <!-- COVID section -->
   <main class="container pt-3">
-
-    <!-- COVID section -->
-    <main class="container pt-3">
-
-      <!-- COVID section -->
       <div class="row">
-  
         <!-- Search column -->
         <div class="col-12 col-md-3">
           <aside class="filters mx-auto">
@@ -62,49 +56,46 @@
                   </div>
                   <button type="button" id="subBtn" class="btn"><i
                     class="fa fa-search mr-2 text-info"></i>Search</button>
-                 
-                    <p id="loading">*Please be patient list takes a few seconds to populate</p>
+                    <p id="loading">*Please be patient - the State and County lists take a few seconds to populate.</p>
                 </form>
-               </div>
+              </div>
               <!-- search history -->
               <div class="mt-4 mb-3" id="searchHistory">
                 <ul class="list-group"></ul>
               </div>
               <div>
                 <button id="delHistory" type="submit" class="btn bg-default mb-5 text-black"><i
-                    class="fa fa-trash mr-2 text-info"></i>Delete Search History</button>
+                    class="fa fa-trash mr-2"></i>Delete Search History</button>
               </div>
             </div>
-                      </aside>
+          </aside>
         </div>
   
         <!-- Results column -->
         <div class="col-12 col-md-9">
           <!-- Covid general info column -->
-          <div class="row mt-3 mb-4 ml-auto d-block">
-            
-            
-          </div>
+          <div class="row mt-3 mb-4 ml-auto d-block"></div>
           <!-- Covid results row -->
           <div class="row">
             <!-- Table -->
-            <div class="col-12 col-md-6" id="tablecol">
-              <div id="tableResults" class="card bg-transparent border-0 text-center"></div>
+            <div class="col-12 col-md-6 mx-auto">
+              <div id="spinnerTable"></div>
+              <div id="tableResults" class="card border-0 ml-3 text-center"></div>
             </div>
             <!-- Plot -->
             <div class="col-12 col-md-6 m-0" id="graphcol">
-              <div class="bg-transparent m-0 p-auto border-0">
+              <div class="bg-transparent mt-0 pt-0">
                 <div id="plot" class="bg-transparent m-0 p-0"></div>
+                <div id="spinnerPlot"></div>
               </div>
             </div>
           </div>
         </div>
       </main>
-            <div class="container pt-3" id="cdcInfo">
-                         <p id="cdcInfo"  class="font-italic">*It is important that you listen to public health officials who may recommend community actions to reduce
+            <div class="container pt-3">
+              <p id="cdcInfo">*It is important that you listen to public health officials who may recommend community actions to reduce
                   potential exposure to COVID-19,
-                  especially if COVID-19 is spreading in your community.</p>
-      
+                  especially if COVID-19 is spreading in your community.</p>      
               </div>
             </div>
           </div>
@@ -124,9 +115,9 @@
 
   <!--About-->
 <section id="aboutlink">
-    <div class="container pt-3">
+    <div class="container pt-3 mb-5">
     <br />
-    <h2>About </h2>
+    <h2>About</h2>
     <p>
       COVIE SEARCH gives you a quick way to check the latest COVID-19 Virus Statistics in your County.
       Our data comes from an API built by Axisbits, which gathers the latest COVID statistics details from the Johns
@@ -135,14 +126,11 @@
       provided
       by the Johns Hopkins CSSE database when run through GoogleMaps.
     </p>
-    <br />
-    <br />
-    <br />
     </div>
   </section>
 
   <!--Footer-->
-  <footer>
+  <footer class="mt-5 pt-5">
     <h2>&copy; 2020 Hot Stuff</h2>
   </footer>
 

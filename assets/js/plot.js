@@ -1,5 +1,8 @@
 // function to fetch data for the plot
 var fetchPlotData = (inputCounty, inputState) => {
+    // show spinner while data is being fetched for the plot
+    showSpinner(spinnerPlotEl);
+    // set up to retrieve and store 30 days worth of data in plotData array
     plotData = [];
     var date = '';
     for (var i=1; i<31; i++) {
@@ -56,7 +59,7 @@ var displayPlot = () => {
         y: confirmedCases,
         mode: 'lines',
         line: {
-            color: 'rgb(91, 192, 222)',
+            color: '#008891',
             width: 4
           },
     };
@@ -64,11 +67,12 @@ var displayPlot = () => {
         name: '# deaths',
         x: dates,
         y: deaths,
+        yaxis: 'y2',
         mode: 'lines',
         line: {
             color: 'rgb(217, 83, 79)',
             width: 4
-          }
+        }
     }
 
     // create the data array for the plot
@@ -95,27 +99,44 @@ var displayPlot = () => {
                 size: 14,
                 color: '#E7E7DE'
             },
-            showline: false,
-            gridcolor: '#E7E7DE',
-            zeroline: true,
-            zerolinecolor: '#E7E7DE'
+            showgrid: false,
+            //showline: false,
+            //gridcolor: '#E7E7DE',
+            //zeroline: true,
+            //zerolinecolor: '#E7E7DE'
+        },
+        yaxis2: {
+            tickfont: {
+                family: 'Montserrat, Arial, Helvetica, sans-serif',
+                size: 14,
+                color: 'rgb(217, 83, 79)'
+            },
+            tickformat: ',',
+            anchor: 'x',
+            overlaying: 'y',
+            side: 'right',
+            showgrid: false
+            //showline: false,
+            //gridcolor: '#E7E7DE',
+            //zeroline: true,
+            //zerolinecolor: '#E7E7DE'
         },
         legend: {
-            x: 0.1,
-            xanchor: 'left',
-            y: 0.95,
+            x: 0,
+            y: 1.1,
+            orientation: 'h',
             font: {
                 family: 'Montserrat, Arial, Helvetica, sans-serif',
                 size: 12,
                 color: '#E7E7DE'
-            },
+            }
         },
         margin: {
-            l: 50,
-            r: 20,
+            l: 40,
+            r: 50,
             b: 50,
             t: 0,
-            pad: 0
+            pad: 10
         },
         autosize: true,
         paper_bgcolor: 'rgba(0,0,0,0)',
@@ -129,6 +150,8 @@ var displayPlot = () => {
         displayModeBar: false
     };
 
+    // hide the spinner
+    hideSpinner(spinnerPlotEl);
     // display the chart
     Plotly.newPlot('plot', data, layout, config);
 };
