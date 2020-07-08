@@ -1,10 +1,18 @@
+:root {
+  --dark-blue: #0f3057;
+  --medium-blue: #00587a;
+  --light-blue: #008891;
+  --bone: #e7e7de;
+  --vie: #e36387;
+}
+
 * {
   font-family: "Montserrat", Arial, Helvetica, sans-serif;
 }
 
 body {
-  background-color: #0f3057;
-  color: #e7e7de;
+  background-color: var(--dark-blue);
+  color: var(--bone);
 }
 
 #logo {
@@ -31,8 +39,8 @@ body {
  {
   background-color: transparent;
   cursor: pointer;
-  color: #e7e7de;
-  border-color: #e7e7de;
+  color: var(--bone);
+  border-color: var(--bone);
   text-align: center;
   max-width: 100%;
   white-space: nowrap;
@@ -40,13 +48,13 @@ body {
 
 #subBtn:hover,
 #delHistory:hover {
-  background-color: #00587a;
-  color: #0f3057;
-  border-color: #008891;
+  background-color: var(--medium-blue);
+  color: var(--dark-blue);
+  border-color: var(--light-blue);
 }
 
 .fa {
-  color: #008891;
+  color: var(--light-blue);
 }
 
 #loading {
@@ -55,66 +63,87 @@ body {
   font-size: 14px;
 }
 
-.form-control,
-.form-control:valid {
-  background-color: #e7e7de;
-}
-
-.list-group-item {
-  color: #0f3057;
-}
-
-.list-group-item:hover {
-  cursor: pointer;
-  background-color: #00587a;
-  color: #e7e7de;
-}
-
-#tableResults h6 {
-  color: #0f3057;
-}
-
-.table td,
-.table th {
-  background-color: #e7e7de;
-  text-align: right;
-}
-#cdcInfo {
-  color: #e7e7de;
-}
-
-
-
 label {
   font-size: 22px;
 }
 
+.form-control,
+.form-control:valid {
+  background-color: var(--bone);
+}
+
+.list-group-item {
+  color: var(--dark-blue);
+}
+
+.list-group-item:hover {
+  cursor: pointer;
+  background-color: var(--medium-blue);
+  color: var(--bone);
+}
+
+#tableResults {
+  background-color: var(--light-blue);
+  margin: auto;
+}
+
+#tableResults h6 {
+  color: var(--dark-blue);
+}
+
+table {
+  background-color: var(--bone);
+  border-radius: 1%;
+  /*border-style: outset;
+  border-color: var(--light-blue);*/
+  /*box-shadow: inset 2px 2px var(--light-blue);*/
+}
+
+table th {
+  color: var(--light-blue);
+  font-weight: normal;
+}
+
+thead th,
+table td {
+  text-align: right;
+}
+
+tbody th {
+  text-align: left;
+}
+
+table td {
+  color: var(--dark-blue);
+  font-weight: bold;
+}
+
+.table-sm td, .table-sm th,
+.table td, .table th {
+  padding: 10px;
+  border: none;
+}
+
+td:hover {
+  border: 1px inset var(--light-blue);
+}
+
+#cdcInfo {
+  font-style: italic;
+}
 
 #aboutlink h2 {
   font-size: 2em;
   line-height: 1.625;
   font-weight: 400;
-  color: #e7e7de;;
 }
 #aboutlink p {
   font-size: 1.25em;
-  color: #e7e7de;
   font-weight: 300;
   line-height: 1.625;
 }
 
-#tableResults,
-#tablecol div {
-  background-color: #e7e7de;
-}
-
-#tableResults div {
- background-color: #e7e7de;
-  padding-left: 4%;
-}
-
 footer h2 {
-  color: #e7e7de;
   text-align: center;
   width: 100%;
   font-size: 18px;
