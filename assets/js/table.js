@@ -2,7 +2,7 @@ var displayCovidTable = (dataObj) => {
     // extract lat and lon for maps purposes
     console.log(dataObj);
 
-
+    // **************** Geocoding for Map - START - **********************
     var countyName = dataObj.region.cities[0].name + ' County';
     var geocoder = new google.maps.Geocoder();
     geocoder.geocode({ address: countyName }, function(results, status) {

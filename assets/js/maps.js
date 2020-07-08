@@ -27,11 +27,15 @@
         }); // Create the places service.
         var service = new google.maps.places.PlacesService(exports.map);
         var getNextPage = null;
+
+        // *************  commented this out because there is no "more" button ***********
         var moreButton = document.getElementById('more');
         moreButton.onclick = function () {
             moreButton.disabled = true;
             if (getNextPage) getNextPage();
-        }; // Perform a nearby search.
+        }; 
+        
+        // Perform a nearby search.
         service.nearbySearch(
             {
                 location: coord,
