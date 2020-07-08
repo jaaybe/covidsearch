@@ -1,43 +1,11 @@
 * {
   font-family: "Montserrat", Arial, Helvetica, sans-serif;
 }
+
 body {
   background-color: #0f3057;
-  color: black;
-}
-
-/* header {
-  background-color: #0f3057;
-} */
-
-.list-group-item:hover {
-  cursor: pointer;
-}
-/* #tableResults div{
-  background-color: #e7e7de; */
-#tableResults h6 {
-  color: black;
-}
-/* #resultrow {
-  background-color: #0f3057;
-} */
-.table td,
-.table th {
-  text-align: right;
-}
-#cdcInfo {
   color: #e7e7de;
 }
-
-#loading {
-  color: #e7e7de;
-  padding-top: 1rem; 
-}
-#statetitle,
-#countyheader {
-  color: #e7e7de;;
-}
-
 
 #logo {
   display: block;
@@ -48,8 +16,8 @@ body {
   max-height: 400px;
   padding-top: 2%;
 }
+
 #snippet {
-  color: #e7e7de;
   text-align: center;
   font-size: 1.85em;
   line-height: 1.625;
@@ -58,37 +26,7 @@ body {
   margin-top: 3%;
 }
 
-/* #stateCard {
-  background-color: #0f3057;
-  border: none;
-  font-size: 1.25em;
-  line-height: 1.625;
-  font-weight: 400;
-  margin-top: 3%;
-}
-
-#fatalityRate,
-#deathsData,
-#confirmedCases,
-#lastUpdate,
-#deathsDiff,
-#casesDiff,
-#casesData {
-  color: #ffffff;
-  font-size: 1.25em;
-  line-height: 1.625;
-  font-weight: 400;
-} */
-
-/* #historyCard {
-  border: none;
-  color: #00587a;
-  font-size: 1.25em;
-  line-height: 1.625;
-  font-weight: 400;
-} */
 #subBtn,
-#clearBtn,
 #delHistory
  {
   background-color: transparent;
@@ -101,12 +39,51 @@ body {
 }
 
 #subBtn:hover,
-#clearBtn:hover,
 #delHistory:hover {
-  background-color: #e7e7de;
-  color: black;
-  border-color: black;
+  background-color: #00587a;
+  color: #0f3057;
+  border-color: #008891;
 }
+
+.fa {
+  color: #008891;
+}
+
+#loading {
+  padding-top: 1rem;
+  font-style: italic;
+  font-size: 14px;
+}
+
+.form-control,
+.form-control:valid {
+  background-color: #e7e7de;
+}
+
+.list-group-item {
+  color: #0f3057;
+}
+
+.list-group-item:hover {
+  cursor: pointer;
+  background-color: #00587a;
+  color: #e7e7de;
+}
+
+#tableResults h6 {
+  color: #0f3057;
+}
+
+.table td,
+.table th {
+  background-color: #e7e7de;
+  text-align: right;
+}
+#cdcInfo {
+  color: #e7e7de;
+}
+
+
 
 label {
   font-size: 22px;
@@ -130,10 +107,12 @@ label {
 #tablecol div {
   background-color: #e7e7de;
 }
+
 #tableResults div {
  background-color: #e7e7de;
   padding-left: 4%;
 }
+
 footer h2 {
   color: #e7e7de;
   text-align: center;

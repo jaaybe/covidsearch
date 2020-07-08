@@ -2,18 +2,15 @@
     visibility: hidden;
     width: 80px;
     height: 80px;
-  
-    border: 2px solid #f3f3f3;
-    border-top:3px solid #f25a41;
-    border-radius: 100%;
-  
+    border-radius: 50%;
+    border: 2px solid #e7e7de;
+    border-top: 3px solid #e36387;
     position: absolute;
     top:0;
     bottom:0;
     left:0;
     right: 0;
     margin: auto;
-  
     animation: spin 1s infinite linear;
   }
 
@@ -22,8 +19,8 @@
     width: 80px;
     height: 80px;
   
-    border: 5px solid #f3f3f3;
-    border-top:5px solid #f25a41;
+    border: 5px solid #e7e7de;
+    border-top:5px solid #e36387;
     border-radius: 100%;
   
     position: flex;
