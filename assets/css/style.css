@@ -15,7 +15,6 @@ body {
 }
 /* #tableResults div{
   background-color: #e7e7de; */
-}
 #tableResults h6 {
   color: black;
 }
@@ -27,9 +26,13 @@ body {
   text-align: right;
 }
 #cdcInfo {
-  color: #e7e7de;;
+  color: #e7e7de;
 }
 
+#loading {
+  color: #e7e7de;
+  padding-top: 1rem; 
+}
 #statetitle,
 #countyheader {
   color: #e7e7de;;
@@ -160,7 +163,7 @@ footer h2 {
     max-height: 150px;
   }
   #snippet {
-    text-align: left;
+    text-align: center;
     font-size: 1.25em;
     line-height: 1;
     font-weight: 300;
@@ -202,7 +205,7 @@ footer h2 {
 
 @media screen and (max-width: 768px) {
   #snippet {
-    text-align: left;
+    text-align: center;
     margin-left: 0.25em;
   }
   #tableResults div {
