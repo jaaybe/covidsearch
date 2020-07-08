@@ -18,17 +18,35 @@ var iframeMapEl = document.querySelector('#iframeMap');
 // utility function to display list of unique values
 var uniqueValues = ((value, index, self) => self.indexOf(value) === index);
 
+// utility function to display array of unique objects
+var uniqueHistory = (arr) => {
+    var newArr = [];
+    Object.entries(arr).forEach(entry => {
+        var obj = entry[1];
+        if (newArr.length === 0) {
+            newArr.push({'county': obj.county, 'state': obj.state});
+        }
+        else {
+            var found = newArr.some(el => (el.county === obj.county && el.state === obj.state));
+            if (!found) {
+                newArr.push({'county': obj.county, 'state': obj.state});
+            }
+        };
+    });
+    return newArr;
+};
+
 // retrieve search history
 var searchHistoryArr = JSON.parse(localStorage.getItem('searchHistoryArr')) || [];
 
 // function to populate the search history and save to local storage
 var searchHistory = () => {
-    console.log('before:', searchHistoryArr);
     // clear previous search history
     searchHistoryEl.innerHTML = '';
+    // eliminate duplicates in searchHistoryArr
+    searchHistoryArr = uniqueHistory(searchHistoryArr);
     // sort searchHistoryArr alphabetically by county
     searchHistoryArr.sort((a, b) => (a.county > b.county) ? 1 : -1);
-    console.log('after sorting:', searchHistoryArr);
     // loop through searchHistoryArr to display user search history
     searchHistoryArr.forEach(obj => {
         var countyStateEl = document.createElement('li');
