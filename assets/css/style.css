@@ -73,15 +73,41 @@ label {
 .form-control:valid {
   background-color: var(--bone);
 }
-
-.list-group-item {
+/*
+#searchHistory ul > li:nth-child(odd) {
   color: var(--dark-blue);
+  background-color: var(--bone);
 }
 
-.list-group-item:hover {
+#searchHistory ul > li:nth-child(even) {
+  color: var(--dark-blue);
+  background-color: var(--bone);
+}
+*/
+
+#searchHistory {
+  width: 100%;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#searchHistory li{
+  width: 100%;
+  color: var(--dark-blue);
+  font-size: 16px;
+  background-color: var(--bone);
+  border: 1px solid #ddd;
+  border-radius: 2%;
+  margin-top: -1px; /* Prevent double borders */
+  padding: 10px;
+}
+
+#searchHistory li:hover {
   cursor: pointer;
   background-color: var(--medium-blue);
   color: var(--bone);
+  border: none;
 }
 
 #tableResults {
