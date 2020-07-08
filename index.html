@@ -47,11 +47,11 @@
               <div class="panel-body">
                 <form id="user-form">
                   <div class="form-group mb-3">
-                    <label for="states" id="statetitle">State</label>
+                    <label for="states">State</label>
                     <select class="form-control" id="states"></select>
                   </div>
                   <div class="form-group mb-3">
-                    <label for="cities" id="countyheader">County</label>
+                    <label for="counties">County</label>
                     <select class="form-control" id="counties"></select>
                   </div>
                   <button type="button" id="subBtn" class="btn"><i
@@ -64,7 +64,7 @@
                 <ul class="list-group"></ul>
               </div>
               <div>
-                <button id="delHistory" type="submit" class="btn bg-default mb-5 text-black"><i
+                <button id="delHistory" type="submit" class="btn bg-default mb-5"><i
                     class="fa fa-trash mr-2"></i>Delete Search History</button>
               </div>
             </div>
@@ -73,19 +73,17 @@
   
         <!-- Results column -->
         <div class="col-12 col-md-9">
-          <!-- Covid general info column -->
-          <div class="row mt-3 mb-4 ml-auto d-block"></div>
           <!-- Covid results row -->
-          <div class="row">
+          <div class="row mx-auto">
             <!-- Table -->
-            <div class="col-12 col-md-6 mx-auto">
+            <div class="col-12 col-md-6">
               <div id="spinnerTable"></div>
-              <div id="tableResults" class="card border-0 ml-3 text-center"></div>
+              <div id="tableResults" class="card border-0 text-center"></div>
             </div>
             <!-- Plot -->
             <div class="col-12 col-md-6 m-0" id="graphcol">
               <div class="bg-transparent mt-0 pt-0">
-                <div id="plot" class="bg-transparent m-0 p-0"></div>
+                <div id="plot" class="bg-transparent"></div>
                 <div id="spinnerPlot"></div>
               </div>
             </div>
