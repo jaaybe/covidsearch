@@ -27,12 +27,12 @@ body {
   text-align: right;
 }
 #cdcInfo {
-  color: #ffffff;
+  color: #e7e7de;;
 }
 
 #statetitle,
 #countyheader {
-  color: #ffffff;
+  color: #e7e7de;;
 }
 
 
@@ -46,6 +46,7 @@ body {
   padding-top: 2%;
 }
 #snippet {
+  color: #e7e7de;
   text-align: center;
   font-size: 1.85em;
   line-height: 1.625;
@@ -89,8 +90,8 @@ body {
  {
   background-color: transparent;
   cursor: pointer;
-  color: #ffffff;
-  border-color: white;
+  color: #e7e7de;
+  border-color: #e7e7de;
   text-align: center;
   max-width: 100%;
   white-space: nowrap;
@@ -108,32 +109,35 @@ label {
   font-size: 22px;
 }
 
-/* removed padded from default col:12 - JB */
-
-.mapContainer {
-  padding: 0;
-}
-
-
 
 #aboutlink h2 {
   font-size: 2em;
   line-height: 1.625;
   font-weight: 400;
-  color: #ffffff;
+  color: #e7e7de;;
 }
 #aboutlink p {
   font-size: 1.25em;
-  color: #ffffff;
+  color: #e7e7de;
   font-weight: 300;
   line-height: 1.625;
 }
 
+#tableResults,
+#tablecol div {
+  background-color: #e7e7de;
+}
+#tableResults div {
+ background-color: #e7e7de;
+  padding-left: 4%;
+}
 footer h2 {
+  color: #e7e7de;
   text-align: center;
   width: 100%;
   font-size: 18px;
 }
+
 @media screen and (max-width: 980px) {
   #logo {
     font-size: 50px;
@@ -146,6 +150,8 @@ footer h2 {
     font-size: 40px;
     position: relative;
   }
+  #tableResults div {
+  padding-left: none;
 }
 
 @media screen and (max-width: 575px) {
@@ -198,5 +204,8 @@ footer h2 {
   #snippet {
     text-align: left;
     margin-left: 0.25em;
+  }
+  #tableResults div {
+    padding-left: none;
   }
 }
