@@ -4,6 +4,7 @@
   --light-blue: #008891;
   --bone: #e7e7de;
   --vie: #e36387;
+  --purple: #800080;
 }
 
 * {
@@ -165,7 +166,7 @@ footer h2 {
   padding-left: none;
   }
   #graphcol {
-    padding-top: 7%;
+    padding-top: 0;
     padding-bottom: 7%;
   }
 }
@@ -228,7 +229,7 @@ footer h2 {
     padding-left: none;
   }
   #graphcol {
-    padding-top: 5%;
+    padding-top: 0;
     padding-bottom: 5%;
   }
 }
