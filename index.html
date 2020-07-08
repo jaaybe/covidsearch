@@ -32,7 +32,7 @@
 
   <section style="width: 100%;">
 
-    <div id="snippet" class="text-white">
+    <div id="snippet">
       <p>Your county’s COVID-19 data at your fingertips</p>
     </div>
   </section>
@@ -40,65 +40,74 @@
   <main class="container pt-3">
 
     <!-- COVID section -->
-    <div class="row">
+    <main class="container pt-3">
 
-      <!-- Search column -->
-      <div class="col-12 col-md-3">
-        <aside class="filters mx-auto">
-          <div class="panel panel-default">
-            <!-- drop down lists -->
-            <div class="panel-body">
-              <form id="user-form">
-                <div class="form-group mb-3">
-                  <label for="states" id="statetitle">State</label>
-                  <select class="form-control" id="states"></select>
-                </div>
-                <div class="form-group mb-3">
-                  <label for="cities" id="countyheader">County</label>
-                  <select class="form-control" id="counties"></select>
-                </div>
-                <button type="button" id="subBtn" class="btn"><i
-                  class="fa fa-search mr-2 text-info"></i>Search</button>
-              </form>
+      <!-- COVID section -->
+      <div class="row">
+  
+        <!-- Search column -->
+        <div class="col-12 col-md-3">
+          <aside class="filters mx-auto">
+            <div class="panel panel-default">
+              <!-- drop down lists -->
+              <div class="panel-body">
+                <form id="user-form">
+                  <div class="form-group mb-3">
+                    <label for="states" id="statetitle">State</label>
+                    <select class="form-control" id="states"></select>
+                  </div>
+                  <div class="form-group mb-3">
+                    <label for="cities" id="countyheader">County</label>
+                    <select class="form-control" id="counties"></select>
+                  </div>
+                  <button type="button" id="subBtn" class="btn"><i
+                    class="fa fa-search mr-2 text-info"></i>Search</button>
+                </form>
+              </div>
+              <!-- search history -->
+              <div class="mt-4 mb-3" id="searchHistory">
+                <ul class="list-group"></ul>
+              </div>
+              <div>
+                <button id="delHistory" type="submit" class="btn bg-default mb-5 text-black"><i
+                    class="fa fa-trash mr-2 text-info"></i>Delete Search History</button>
+              </div>
             </div>
-            <!-- search history -->
-            <div class="mt-4 mb-3" id="searchHistory">
-              <ul class="list-group"></ul>
-            </div>
-            <div>
-              <button id="delHistory" type="submit" class="btn bg-default mb-5 text-black"><i
-                  class="fa fa-trash mr-2 text-info"></i>Delete Search History</button>
-            </div>
-          </div>
-        </aside>
-      </div>
-
-      <!-- Results column -->
-      <div class="col-12 col-md-9">
-        <!-- Covid general info column -->
-        <div class="row mt-3 mb-4 ml-auto d-block" id="cdcInfo">
-          <h5></h5>
-          <p>It is important that you listen to public health officials who may recommend community actions to reduce
-            potential exposure to COVID-19,
-            especially if COVID-19 is spreading in your community.</p>
-
+          </aside>
         </div>
-        <!-- Covid results row -->
-        <div class="row">
-          <!-- Table -->
-          <div class="col-12 col-md-6" >
-            <div id="tableResults" class="card bg-transparent border-0"></div>
+  
+        <!-- Results column -->
+        <div class="col-12 col-md-9">
+          <!-- Covid general info column -->
+          <div class="row mt-3 mb-4 ml-auto d-block">
+            
+            
           </div>
-          <!-- Plot -->
-          <div class="col-12 col-md-6 m-0 p-auto">
-            <div class="bg-transparent m-0 p-auto border-0">
-              <div id="plot" class="bg-transparent m-0 p-0"></div>
+          <!-- Covid results row -->
+          <div class="row">
+            <!-- Table -->
+            <div class="col-12 col-md-6" id="tablecol">
+              <div id="tableResults" class="card bg-transparent border-0 text-center"></div>
+            </div>
+            <!-- Plot -->
+            <div class="col-12 col-md-6 m-0" id="graphcol">
+              <div class="bg-transparent m-0 p-auto border-0">
+                <div id="plot" class="bg-transparent m-0 p-0"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+            <div class="container pt-3" id="cdcInfo">
+                         <p id="cdcInfo"  class="font-italic">*It is important that you listen to public health officials who may recommend community actions to reduce
+                  potential exposure to COVID-19,
+                  especially if COVID-19 is spreading in your community.</p>
+      
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </main>
 
 
   <!-- GOOGLE MAP section -->
@@ -132,7 +141,7 @@
 
   <!--Footer-->
   <footer>
-    <h2 class="text-white">&copy; 2020 Hot Stuff</h2>
+    <h2>&copy; 2020 Hot Stuff</h2>
   </footer>
 
   <!-- JavaScript -->
