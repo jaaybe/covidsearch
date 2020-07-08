@@ -57,7 +57,7 @@ var displayPlot = () => {
         mode: 'lines',
         line: {
             color: 'rgb(91, 192, 222)',
-            width: 3
+            width: 4
           },
     };
     var trace2 = {
@@ -67,7 +67,7 @@ var displayPlot = () => {
         mode: 'lines',
         line: {
             color: 'rgb(217, 83, 79)',
-            width: 3
+            width: 4
           }
     }
 
@@ -78,25 +78,44 @@ var displayPlot = () => {
     var layout = {
         xaxis: {
             title: '30-DAY TREND',
-            showgrid: false,
-            zeroline: false,
-            showline: false
+            titlefont: {
+                family: 'Montserrat, Arial, Helvetica, sans-serif',
+                color: '#E7E7DE'
+            },
+            tickfont: {
+                family: 'Montserrat, Arial, Helvetica, sans-serif',
+                size: 14,
+                color: '#E7E7DE'
+            },
+            showgrid: false
         },
         yaxis: {
+            tickfont: {
+                family: 'Montserrat, Arial, Helvetica, sans-serif',
+                size: 14,
+                color: '#E7E7DE'
+            },
             showline: false,
-            gridcolor: '#ffffff'
+            gridcolor: '#E7E7DE',
+            zeroline: true,
+            zerolinecolor: '#E7E7DE'
         },
         legend: {
-            x: 0,
-            y: 1.2,
-            orientation: 'h'
+            x: 0.1,
+            xanchor: 'left',
+            y: 0.95,
+            font: {
+                family: 'Montserrat, Arial, Helvetica, sans-serif',
+                size: 12,
+                color: '#E7E7DE'
+            },
         },
-                margin: {
+        margin: {
             l: 50,
-            r: 0,
+            r: 20,
             b: 50,
             t: 0,
-            pad: 4
+            pad: 0
         },
         autosize: true,
         paper_bgcolor: 'rgba(0,0,0,0)',
