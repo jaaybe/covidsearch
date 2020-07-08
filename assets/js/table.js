@@ -1,5 +1,3 @@
-var tableResultsEl = document.querySelector('#tableResults');
-
 var displayCovidTable = (dataObj) => {
     // extract lat and lon for maps purposes
     console.log(dataObj);
@@ -21,12 +19,8 @@ var displayCovidTable = (dataObj) => {
        }
     })
 
-    
-   
-
     /********** TABLE BUILDING **********/
     // clear previous content
-    tableResultsEl.innerHTML = '';
     var tableResultsDivEl = document.createElement('div');
     tableResultsDivEl.setAttribute('class', 'card-body mt-0 bg-info');
     // set title

@@ -1,5 +1,8 @@
 // function to fetch data for the plot
 var fetchPlotData = (inputCounty, inputState) => {
+    // show spinner while data is being fetched for the plot
+    showSpinner(spinnerPlotEl);
+    // set up to retrieve and store 30 days worth of data in plotData array
     plotData = [];
     var date = '';
     for (var i=1; i<31; i++) {
@@ -129,6 +132,8 @@ var displayPlot = () => {
         displayModeBar: false
     };
 
+    // hide the spinner
+    hideSpinner(spinnerPlotEl);
     // display the chart
     Plotly.newPlot('plot', data, layout, config);
 };
