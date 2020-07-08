@@ -2,9 +2,27 @@ var tableResultsEl = document.querySelector('#tableResults');
 
 var displayCovidTable = (dataObj) => {
     // extract lat and lon for maps purposes
-    inputLat = dataObj.region.cities[0].lat;
-    inputLon = dataObj.region.cities[0].long;
-    iframeMapEl.setAttribute('src', 'maps.html?lat='+ inputLat + '&lon=' + inputLon);
+    console.log(dataObj);
+
+
+    var countyName = dataObj.region.cities[0].name + ' County';
+    var geocoder = new google.maps.Geocoder();
+    geocoder.geocode({ address: countyName }, function(results, status) {
+       console.log(results)
+
+       if (status === 'OK') {
+        inputLat = results[0].geometry.location.lat;
+        inputLon = results[0].geometry.location.lon;
+        iframeMapEl.setAttribute('src', 'maps.html?lat='+ inputLat + '&lon=' + inputLon);
+       } else {
+        inputLat = dataObj.region.cities[0].lat;
+        inputLon = dataObj.region.cities[0].long;
+        iframeMapEl.setAttribute('src', 'maps.html?lat='+ inputLat + '&lon=' + inputLon);
+       }
+    })
+
+    
+   
 
     /********** TABLE BUILDING **********/
     // clear previous content
