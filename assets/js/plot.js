@@ -69,9 +69,9 @@ var displayPlot = () => {
         y: deaths,
         mode: 'lines',
         line: {
-            color: '#800080',
+            color: 'rgb(217, 83, 79)',
             width: 4
-          }
+        }
     }
 
     // create the data array for the plot

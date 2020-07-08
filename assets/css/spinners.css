@@ -3,10 +3,10 @@
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    border: 2px solid var(--bone);
-    border-top: 3px solid var(--vie);
+    border-top: 2px solid var(--vie);
+    border-right: 2px solid transparent;
     position: absolute;
-    top:0;
+    top: 0;
     bottom:0;
     left:0;
     right: 0;
@@ -18,18 +18,15 @@
     visibility: hidden;
     width: 80px;
     height: 80px;
-  
-    border: 5px solid var(--bone);
-    border-top:5px solid var(--vie);
-    border-radius: 100%;
-  
-    position: flex;
+    border-radius: 50%;
+    border-top: 2px solid var(--vie);
+    border-right: 2px solid transparent;
+    position: absolute;
     top:0;
     bottom:0;
     left:0;
     right: 0;
     margin: auto;
-  
     animation: spin 1s infinite linear;
   }
   
