@@ -55,6 +55,9 @@ var searchHistoryArr = JSON.parse(localStorage.getItem('searchHistoryArr')) || [
 var searchHistory = () => {
     // clear previous search history
     searchHistoryEl.innerHTML = '';
+    // add ul element
+    // var listEl = document.createElement('ul');
+    // listEl.setAttribute('class', 'list-group w-100');
     // eliminate duplicates in searchHistoryArr
     searchHistoryArr = uniqueHistory(searchHistoryArr);
     // sort searchHistoryArr alphabetically by county
@@ -62,10 +65,11 @@ var searchHistory = () => {
     // loop through searchHistoryArr to display user search history
     searchHistoryArr.forEach(obj => {
         var countyStateEl = document.createElement('li');
-        countyStateEl.setAttribute('class', 'list-group-item');
+        //countyStateEl.setAttribute('class', 'searchHistoryItem w-100');
         countyStateEl.textContent = `${obj.county}, ${obj.state}`;
         searchHistoryEl.appendChild(countyStateEl);
     });
+    //searchHistoryEl.appendChild(listEl);
 };
 // get data from COVID api
 var makeDropDownLists = () => {

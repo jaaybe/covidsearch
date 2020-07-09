@@ -91,7 +91,9 @@ var displayPlot = () => {
                 size: 14,
                 color: '#E7E7DE'
             },
-            showgrid: false
+            showgrid: false,
+            showline: true,
+            linecolor: '#E7E7DE'
         },
         yaxis: {
             tickfont: {
