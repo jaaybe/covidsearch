@@ -59,11 +59,11 @@ body {
   color: var(--light-blue);
 }
 
-#loading {
+/* #loading {
   padding-top: 1rem;
   font-style: italic;
   font-size: 14px;
-}
+} */
 
 label {
   font-size: 22px;

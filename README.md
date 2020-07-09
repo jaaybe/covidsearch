@@ -1,6 +1,7 @@
 # covie_search
 
-[COVIE SEARCH](https://github.com/jaaybe/weather_dashboard)
+[COVIE SEARCH Git Repo](https://github.com/jaaybe/covidsearch)
+[Covie search Live Link](https://jaaybe.github.io/covidsearch/)
 
 created by: JB Blot, Sandrine Poissonnet, Natalia Teaca, Kelly Elliot, and Alica Ross.
 
