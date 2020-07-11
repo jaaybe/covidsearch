@@ -1,20 +1,14 @@
 (function(exports) {
     'use strict';
     var url = new URL(window.location)
-    var lat = url.searchParams.get('lat');
-    var lon = url.searchParams.get('lon');
-    var coord;
-    if (lat && lon) {
-        coord = {
-            lat: Number(lat),
-            lng: Number(lon),
-        };
-    } else {
-        // los angeles is default
-        coord = {
-            lat: 34.0522,
-            lng: -118.2437
-        };
+
+    var lat = Number(url.searchParams.get('lat')) || 34.0522;
+    var lon = Number(url.searchParams.get('lon')) || -118.2437;
+
+    console.log(lat)
+    var coord = {
+        lat: lat,
+        lgn: lon
     }
     // This example requires the Places library. Include the libraries=places
     // parameter when you first load the API. For example:
