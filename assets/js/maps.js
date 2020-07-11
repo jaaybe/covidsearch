@@ -1,15 +1,17 @@
 (function(exports) {
     'use strict';
     var url = new URL(window.location)
+    
 
-    var lat = Number(url.searchParams.get('lat')) || 34.0522;
-    var lon = Number(url.searchParams.get('lon')) || -118.2437;
+  var lat = Number(url.searchParams.get('lat')) || 34.0522;
+  var lon = Number(url.searchParams.get('lon')) || -118.2437;
 
-    console.log(lat)
-    var coord = {
-        lat: lat,
-        lgn: lon
-    }
+  var coord = {
+      lat: lat,
+      lng: lon
+  }
+  
+  
     // This example requires the Places library. Include the libraries=places
     // parameter when you first load the API. For example:
     // <script src=“https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places”>
@@ -21,15 +23,11 @@
         }); // Create the places service.
         var service = new google.maps.places.PlacesService(exports.map);
         var getNextPage = null;
-
-        // *************  commented this out because there is no "more" button ***********
         var moreButton = document.getElementById('more');
         moreButton.onclick = function () {
             moreButton.disabled = true;
             if (getNextPage) getNextPage();
-        }; 
-        
-        // Perform a nearby search.
+        }; // Perform a nearby search.
         service.nearbySearch(
             {
                 location: coord,

@@ -2,15 +2,15 @@ var displayCovidTable = (dataObj) => {
     // extract lat and lon for maps purposes
     console.log(dataObj);
 
-    // **************** Geocoding for Map - START - **********************
+
     var countyName = dataObj.region.cities[0].name + ' County';
     var geocoder = new google.maps.Geocoder();
-    geocoder.geocode({ address: countyName }, function(results, status) {
-       console.log(results)
 
+    
+    geocoder.geocode({ address: countyName }, function(results, status) {
        if (status === 'OK') {
-        inputLat = results[0].geometry.location.lat;
-        inputLon = results[0].geometry.location.lon;
+        inputLat = results[0].geometry.location.lat();
+        inputLon = results[0].geometry.location.lng();
         iframeMapEl.setAttribute('src', 'maps.html?lat='+ inputLat + '&lon=' + inputLon);
        } else {
         inputLat = dataObj.region.cities[0].lat;
