@@ -1,8 +1,6 @@
 var displayCovidTable = (dataObj) => {
+    
     // extract lat and lon for maps purposes
-    console.log(dataObj);
-
-
     var countyName = dataObj.region.cities[0].name + ' County';
     var geocoder = new google.maps.Geocoder();
 
